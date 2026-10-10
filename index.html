@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0a1a">
+  <meta name="description" content="Kejutan ulang tahun ke-17 untuk dede Andini Sari, dengan doa, perhatian, dan semangat dari kak.">
+  <title>Happy 17th Birthday, Dede Andini!</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%230a0a1a'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Georgia' font-size='37' fill='%23ff6bc1'%3E17%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/style.css?v=20261009-mobile2">
+  <link rel="stylesheet" href="css/mobile.css?v=20261009-mobile2">
+  <link rel="stylesheet" href="css/motion.css?v=20261009-flow1">
+  <link rel="stylesheet" href="css/cake.css?v=20261009-cake2">
+  <link rel="stylesheet" href="css/tulips.css?v=20261009-tulip1">
+  <script src="js/vendor/vue.global.prod.js" defer></script>
+  <script src="js/main.js?v=20261009-tulip1" defer></script>
+  <script src="js/scroll-motion.js?v=20261009-flow1" defer></script>
+</head>
+<body>
+<div id="app" v-cloak>
+  <div class="page-atmosphere" aria-hidden="true"><span class="glow-purple"></span><span class="glow-pink"></span><span class="glow-gold"></span></div>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <a class="skip-link" href="#hero">Langsung ke ucapan</a>
+  <canvas id="particles-canvas" ref="particlesCanvas" aria-hidden="true"></canvas>
+  <canvas id="confetti-canvas" ref="confettiCanvas" aria-hidden="true"></canvas>
+  <canvas id="click-particles-canvas" ref="clickParticlesCanvas" aria-hidden="true"></canvas>
+  <button id="audio-toggle" type="button" :aria-pressed="musicPlaying" :aria-label="musicLabel" :title="musicLabel" :disabled="musicUnavailable" @click="toggleMusic"><span aria-hidden="true">{{ musicPlaying ? '🔊' : '🎵' }}</span></button>
+  <nav class="nav-dots" aria-label="Bagian ucapan ulang tahun">
+    <button v-for="item in navigation" :key="item.id" type="button" class="nav-dot" :class="{ active: activeSection === item.id }" :aria-label="item.label" :aria-current="activeSection === item.id ? 'location' : null" :data-label="item.label" @click="scrollToSection(item.id)"><span></span></button>
+  </nav>
+  <main>
+<section id="hero">
+        <!-- Tulips and small birthday accents -->
+        <img class="tulip-floating tulip-floating--left" src="assets/tulip.svg" width="120" height="180" alt="" aria-hidden="true">
+        <img class="tulip-floating tulip-floating--right" src="assets/tulip.svg" width="120" height="180" alt="" aria-hidden="true">
+        <img class="tulip-floating tulip-floating--small" src="assets/tulip.svg" width="120" height="180" alt="" aria-hidden="true">
+        <div class="floating-emoji" style="top:70%;right:5%;animation-delay:0.5s;font-size:32px">✨</div>
+
+        <div class="section-content">
+            <div class="hero-badge">🌷 Sweet Seventeen 💛</div>
+            <h1 class="hero-name" id="birthday-heading"><span class="name-first">Andini</span> <span class="name-last">Sari</span></h1>
+            <h2 class="hero-subtitle">Happy 17th Birthday!</h2>
+            <div class="indo-accent"></div>
+            <div class="hero-age" id="age-badge">
+                <span>17</span>
+            </div>
+            <p class="hero-message">
+                Selamat ulang tahun ke-17, dede! 🌟<br>
+                Kejutan kecil dari kak, khusus untuk hari bahagiamu.
+            </p>
+            <div class="hero-cta">
+                <button class="btn-celebrate" id="btn-start" @click="startCelebration">
+                    <span>🎉</span> Buka Kejutannya <span>🎉</span>
+                </button>
+            </div><a class="scroll-note" href="#letter">Ada sesuatu yang manis di bawah sini ✨</a>
+            <p class="click-hint">Sentuh di mana saja untuk menebar sedikit keajaiban ✨</p>
+        </div>
+    </section>
+<section id="letter">
+        <div class="section-content">
+            <div class="reveal">
+                <div class="section-title">Surat dari Kak</div>
+                <div class="section-subtitle">✉️ Untuk Dede Andini ✉️</div>
+            </div>
+            <div class="letter-card reveal">
+                <img class="letter-tulip" src="assets/tulip.svg" width="120" height="180" alt="" aria-hidden="true">
+                <div class="letter-greeting">Dede Andini,</div>
+                <div class="letter-body">
+                    <p>Selamat ulang tahun yang ke-17, dede! 🎂</p>
+                    <p>
+                        Hari ini kak menyiapkan kejutan kecil untuk dede. Semoga bisa bikin dede tersenyum
+                        dan merasa diperhatikan. Terima kasih sudah menganggap kak sebagai kakakmu;
+                        kak senang bisa menjadi teman cerita dan ikut menyemangati dede.
+                    </p>
+                    <p>
+                        Di usia 17 ini, semoga dede menemukan banyak hal yang menyenangkan:
+                        teman yang baik, hobi yang seru, dan langkah kecil menuju mimpi dede.
+                        Kak ikut mendukung, tapi dede boleh memilih arah dan berjalan dengan kecepatan sendiri. ✨
+                    </p>
+                    <p>
+                        Jaga kesehatan, ya, de. Jangan lupa makan, tidur yang cukup, dan istirahat kalau capek.
+                        Nilai, tugas, atau hari yang kurang baik tidak mengurangi betapa berharganya dede.
+                        Kak berharap dede bisa memperlakukan diri sendiri dengan baik.
+                    </p>
+                    <p>Dede masih remaja. Tidak perlu buru-buru menjadi dewasa, selalu kuat, atau tahu semua jawaban. Dede boleh bermain, penasaran, berubah pikiran, dan belajar pelan-pelan. Nikmati masa ini, ya.</p>
+                    <p>Kalau suatu hari dede bingung atau sedih, boleh cerita ke kak saat dede ingin. Kak akan berusaha mendengarkan, tanpa menuntut dede harus selalu ceria. Dede juga boleh mencari dukungan dari keluarga atau teman yang dipercaya.</p>
+                    <p>Semoga tahun ini membawa banyak tawa, pengalaman seru, dan hari-hari yang hangat. Selamat menikmati ulang tahunmu, de. Doa baik dan semangat dari kak untuk langkah-langkah kecil dede berikutnya. 🌱</p>
+                </div>
+                <div class="letter-signature">
+                    Dari kak, dengan doa dan semangat 💛
+                </div>
+            </div>
+        </div>
+    </section>
+<section id="about">
+        <div class="section-content">
+            <div class="reveal">
+                <div class="section-title">Dede yang Berulang Tahun</div>
+                <div class="section-subtitle">✨ Yang Berulang Tahun ✨</div>
+            </div>
+            <div class="profile-card reveal">
+                <div class="profile-avatar">
+                    <span class="avatar-text">A</span>
+                </div>
+                <h3 class="profile-name">Andini Sari</h3>
+                <div class="indo-accent"></div>
+                <div class="profile-info">
+<div class="info-chip">
+                        <span class="chip-icon">🇮🇩</span> Indonesia
+                    </div>
+<div class="info-chip">
+                        <span class="chip-icon">👧</span> Gadis Remaja
+                    </div>
+<div class="info-chip">
+                        <span class="chip-icon">🎂</span> 17 Tahun
+                    </div>
+</div>
+                <p class="profile-age-note">17 tahun — masih boleh bermain, belajar, dan tumbuh pelan-pelan. 🌱</p>
+                <p class="profile-quote">
+                    Semoga tahun baru dede dipenuhi tawa, teman yang baik, dan kesempatan untuk tumbuh dengan cara dede sendiri.
+                </p>
+            </div>
+        </div>
+    </section>
+<section id="teen-years" aria-labelledby="teen-title">
+    <div class="section-content">
+        <h2 class="section-title" id="teen-title">Nikmati Masa Remajamu</h2>
+        <p class="section-subtitle">🌷 No Rush to Grow Up 🌷</p>
+        <p class="section-intro">Usia 17 bukan perlombaan. Masih ada waktu untuk mengenal dirimu, menikmati hal-hal kecil, dan menemukan apa yang kamu sukai.</p>
+        <div class="teen-grid">
+            <article class="teen-card"><span class="teen-icon" aria-hidden="true">🎨</span><h3>Temukan yang kamu suka</h3><p>Menggambar, membaca, bermain, menari, atau mencoba hobi baru — nikmati rasa ingin tahumu. Kamu tidak harus langsung hebat untuk mulai menyukai sesuatu.</p></article>
+            <article class="teen-card"><span class="teen-icon" aria-hidden="true">🌱</span><h3>Belajar sedikit demi sedikit</h3><p>Satu tugas selesai, satu hal baru dipahami, satu percobaan kecil. Langkah-langkah sederhana itu tetap layak dirayakan, bahkan saat hasilnya belum sempurna.</p></article>
+            <article class="teen-card"><span class="teen-icon" aria-hidden="true">🧸</span><h3>Boleh istirahat dan bermain</h3><p>Tidak setiap hari harus produktif. Ada waktu untuk tertawa bersama teman, menikmati cerita favorit, dan beristirahat tanpa merasa bersalah.</p></article>
+            <article class="teen-card"><span class="teen-icon" aria-hidden="true">🤝</span><h3>Tidak harus sendirian</h3><p>Kalau bingung atau sedih, dede boleh meminta bantuan. Kak bisa menjadi teman cerita, dan dede juga boleh menghubungi keluarga atau teman yang dipercaya.</p></article>
+        </div>
+    </div>
+</section>
+<section id="wishes">
+        <div class="section-content">
+            <div class="reveal">
+                <div class="section-title">Doa & Harapan</div>
+                <div class="section-subtitle">🌟 Wishes for You 🌟</div>
+            </div>
+            <div class="wishes-grid">
+                <article class="wish-card reveal" v-for="wish in wishes" :key="wish.title">
+                    <span class="wish-icon" aria-hidden="true">{{ wish.icon }}</span>
+                    <h3 class="wish-title">{{ wish.title }}</h3>
+                    <p class="wish-text">{{ wish.text }}</p>
+                </article>
+            </div></div></section>
+<section id="little-notes" aria-labelledby="notes-title">
+    <div class="section-content">
+        <h2 class="section-title" id="notes-title">17 Pesan dari Kak</h2>
+        <p class="section-subtitle">🌱 Pengingat Kecil untuk Dede 🌱</p>
+        <p class="section-intro">Kak titip 17 pesan kecil untuk dede. Buka kartu mana saja saat ingin membaca sedikit semangat atau pengingat yang baik.</p>
+        <div class="notes-grid">
+            <button v-for="note in birthdayNotes" :key="note.id" class="birthday-note" :class="{ 'is-open': openedNotes.includes(note.id) }" type="button" :aria-expanded="openedNotes.includes(note.id)" :aria-controls="'note-message-' + note.id" @click="toggleNote(note.id)">
+                <span class="note-top"><span class="note-number">{{ String(note.id).padStart(2, '0') }}</span><span class="note-icon" aria-hidden="true">{{ note.icon }}</span></span>
+                <span class="note-title">{{ note.title }}</span>
+                <span class="note-message" :id="'note-message-' + note.id" v-show="openedNotes.includes(note.id)">{{ note.text }}</span>
+                <span class="note-prompt" v-if="!openedNotes.includes(note.id)">Buka pesan ✨</span>
+            </button>
+        </div>
+    </div>
+</section>
+<section id="cake">
+        <div class="section-content">
+            <div class="reveal">
+                <div class="section-title">Tiup Lilinnya!</div>
+                <div class="section-subtitle">🎂 Make a Wish 🎂</div>
+            </div>
+            <button class="cake-container reveal" id="cake-interactive" type="button" :aria-pressed="hasWished" aria-label="Tiup lilin ulang tahun" @click="makeWish">
+                <svg class="birthday-cake-art" viewBox="0 0 360 380" aria-hidden="true" focusable="false">
+                  <defs>
+                    <linearGradient id="cake-rose" x1="0" x2="1"><stop stop-color="#c86f97"/><stop offset=".28" stop-color="#f1a7c3"/><stop offset=".65" stop-color="#e996b7"/><stop offset="1" stop-color="#ba618b"/></linearGradient>
+                    <linearGradient id="cake-cream" x1="0" x2="1"><stop stop-color="#d5b0ba"/><stop offset=".3" stop-color="#fff0e6"/><stop offset=".65" stop-color="#f8dfdb"/><stop offset="1" stop-color="#ce9ea9"/></linearGradient>
+                    <linearGradient id="cake-gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffe8a3"/><stop offset=".5" stop-color="#cf9f58"/><stop offset="1" stop-color="#fae2a1"/></linearGradient>
+                    <linearGradient id="candle-wax" x1="0" x2="1"><stop stop-color="#d890a6"/><stop offset=".4" stop-color="#fff1e9"/><stop offset="1" stop-color="#e3acbc"/></linearGradient>
+                    <linearGradient id="candle-fire" x1="0" y1="1" x2="0" y2="0"><stop stop-color="#fff9d5"/><stop offset=".45" stop-color="#ffd582"/><stop offset="1" stop-color="#e9a056"/></linearGradient>
+                    <radialGradient id="candle-light"><stop stop-color="#ffce7c" stop-opacity=".34"/><stop offset="1" stop-color="#ffce7c" stop-opacity="0"/></radialGradient>
+                    <radialGradient id="cake-shadow"><stop stop-color="#000" stop-opacity=".35"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+                    <pattern id="candle-ribbon" width="10" height="13" patternUnits="userSpaceOnUse"><path d="M-3 4L13-4M-3 17L13 9" stroke="#ce8da7" stroke-width="3" opacity=".75"/></pattern>
+                    <g id="cake-berry"><path d="M-9 0Q-13 9 0 20Q13 9 9 0Q0-6-9 0" fill="#c75276"/><path d="M-7 0L-10-4L-3-3L0-8L3-3L10-4L7 0" fill="#85a581"/><path d="M-4 6L-3 8M4 5L3 7M0 12V14" stroke="#ffe7b3" stroke-width="1.5" stroke-linecap="round"/></g>
+                    <g id="cake-flower"><path d="M0-2V10M0 7Q-7 5-6 0Q-1 1 0 7M0 5Q6 1 7-3Q1-1 0 5" stroke="#90a585" stroke-width="1.3" fill="#a8b79b"/><path d="M-6-12L-2-9L0-14L3-9L6-12C7-3 4 0 0 0S-7-3-6-12Z" fill="#ffe6de"/><path d="M-3-7Q0-4 3-7" stroke="#e7b9bf" stroke-width="1" fill="none"/></g>
+                  </defs>
+                  <ellipse cx="180" cy="342" rx="163" ry="25" fill="url(#cake-shadow)"/>
+                  <ellipse cx="180" cy="327" rx="155" ry="24" fill="#b590a2"/>
+                  <ellipse cx="180" cy="323" rx="155" ry="22" fill="#f7e5e0"/>
+                  <ellipse cx="180" cy="321" rx="141" ry="17" fill="#dec4cc"/>
+                  <path d="M40 234C40 193 320 193 320 234V292C320 336 40 336 40 292Z" fill="url(#cake-rose)"/>
+                  <path d="M49 287Q180 320 311 287" stroke="#f7c5d3" stroke-width="2" fill="none" opacity=".5"/>
+                  <ellipse cx="180" cy="234" rx="140" ry="31" fill="#fbe8df"/>
+                  <path d="M40 234Q51 244 65 249V263Q65 276 76 271V253L100 258V277Q100 292 112 285V260L142 264V273Q142 285 154 278V265L196 265V282Q196 296 208 286V263L239 258V270Q239 282 251 274V255L277 249V260Q277 273 288 267V245Q308 241 320 234Q320 266 180 267Q40 266 40 234" fill="#fff1e7"/>
+                  <path d="M80 161C80 133 280 133 280 161V223C280 257 80 257 80 223Z" fill="url(#cake-cream)"/>
+                  <path d="M82 224Q180 253 278 224" fill="none" stroke="#dca675" stroke-width="3"/>
+                  <ellipse cx="180" cy="161" rx="100" ry="24" fill="#fff3e9"/>
+                  <path d="M80 161Q91 170 106 174V184Q106 196 116 189V177L146 182V196Q146 208 157 199V183L199 183V194Q199 207 210 197V181L241 175V186Q241 198 251 189V173Q272 170 280 161Q280 187 180 187Q80 187 80 161" fill="#fff5eb"/>
+                  <ellipse cx="180" cy="159" rx="85" ry="16" fill="none" stroke="#e8c4bb" stroke-width="1"/>
+                  <g fill="#fff0e2" stroke="#dab4ad" stroke-width=".5"><circle cx="52" cy="298" r="5"/><circle cx="66" cy="305" r="5"/><circle cx="81" cy="310" r="5"/><circle cx="97" cy="314" r="5"/><circle cx="113" cy="317" r="5"/><circle cx="130" cy="320" r="5"/><circle cx="147" cy="322" r="5"/><circle cx="164" cy="323" r="5"/><circle cx="181" cy="323" r="5"/><circle cx="198" cy="323" r="5"/><circle cx="215" cy="322" r="5"/><circle cx="232" cy="320" r="5"/><circle cx="249" cy="317" r="5"/><circle cx="266" cy="314" r="5"/><circle cx="282" cy="310" r="5"/><circle cx="297" cy="305" r="5"/><circle cx="310" cy="298" r="5"/></g>
+                  <g fill="url(#cake-gold)"><circle cx="97" cy="230" r="2"/><circle cx="116" cy="236" r="2"/><circle cx="136" cy="240" r="2"/><circle cx="158" cy="243" r="2"/><circle cx="180" cy="244" r="2"/><circle cx="202" cy="243" r="2"/><circle cx="224" cy="240" r="2"/><circle cx="244" cy="236" r="2"/><circle cx="263" cy="230" r="2"/></g>
+                  <ellipse cx="180" cy="281" rx="27" ry="28" fill="#fff0e6" stroke="url(#cake-gold)" stroke-width="2"/>
+                  <text x="180" y="291" text-anchor="middle" fill="#a66f6c" font-family="Playfair Display, Georgia, serif" font-size="30">17</text>
+                  <use href="#cake-flower" x="100" y="280"/><use href="#cake-flower" x="265" y="282" transform="rotate(15 265 282)"/>
+                  <use href="#cake-berry" x="98" y="156" transform="rotate(-22 98 156)"/><use href="#cake-berry" x="264" y="156" transform="rotate(22 264 156)"/>
+                  <use href="#cake-flower" x="119" y="166"/><use href="#cake-flower" x="242" y="167"/>
+                  <g v-for="(position, index) in [{ x: 143, y: 153 }, { x: 180, y: 145 }, { x: 217, y: 153 }]" :key="index" :transform="'translate(' + position.x + ' ' + position.y + ')'">
+                    <ellipse cy="1" rx="8" ry="3" fill="#cfa8a4" opacity=".4"/>
+                    <rect x="-4" y="-49" width="8" height="50" rx="2" fill="url(#candle-wax)"/>
+                    <rect x="-4" y="-49" width="8" height="50" rx="2" fill="url(#candle-ribbon)"/>
+                    <ellipse cy="-49" rx="4" ry="1.6" fill="#fff0e3"/>
+                    <path d="M0-49V-56" stroke="#69565f" stroke-width="1.5" stroke-linecap="round"/>
+                    <g class="flame-wrapper" :class="{ 'blown-out': hasWished }" :id="'flame-' + (index + 1)">
+                      <ellipse class="candle-halo" cy="-67" rx="25" ry="30" fill="url(#candle-light)"/>
+                      <path class="candle-fire" d="M0-55C-13-59-5-72 1-83C1-72 12-65 6-58Q3-55 0-55" fill="url(#candle-fire)"/>
+                      <path class="candle-core" d="M0-56C-5-59-2-65 1-69C1-64 5-59 0-56" fill="#fff9e7"/>
+                    </g>
+                    <g class="candle-smoke" :class="{ visible: hasWished }"><path d="M0-55C-10-66 11-75 1-86S-5-104 2-110"/><path d="M1-56C9-68-8-76 0-91"/></g>
+                  </g>
+                  <g class="cake-sparkles" fill="url(#cake-gold)"><path d="M51 125L54 133L62 136L54 139L51 147L48 139L40 136L48 133Z"/><path d="M305 178L307 184L313 186L307 188L305 194L303 188L297 186L303 184Z"/><circle cx="281" cy="106" r="2"/><circle cx="70" cy="199" r="1.5"/></g>
+                </svg>
+            </button>
+            <p class="cake-instruction" id="wish-status" role="status">{{ hasWished ? 'Lilin sudah padam. Kak ikut mendoakan yang baik untuk dede! ✨' : 'Buat permohonan dulu, de. Lalu sentuh kuenya untuk meniup lilin.' }}</p>
+            <div class="cake-message" :class="{ visible: hasWished }" id="cake-message">Happy 17th Birthday, Dede! 🎉</div><button v-if="hasWished" class="button-secondary" type="button" @click="relightCandles">Nyalakan lilin lagi ✨</button>
+        </div>
+    </section>
+<section id="birthday-plans" aria-labelledby="plans-title">
+    <div class="section-content">
+        <h2 class="section-title" id="plans-title">Little Birthday Checklist</h2>
+        <p class="section-subtitle">🎀 A Day Full of Little Joys 🎀</p>
+        <p class="section-intro">Tidak harus pesta besar. Pilih hal-hal sederhana yang membuat hari ulang tahunmu terasa menyenangkan, lalu centang yang sudah kamu lakukan.</p>
+        <div class="birthday-plan-list">
+            <label v-for="plan in birthdayPlans" :key="plan.id" class="birthday-plan" :class="{ 'is-done': completedPlans.includes(plan.id) }">
+                <input type="checkbox" v-model="completedPlans" :value="plan.id">
+                <span class="plan-icon" aria-hidden="true">{{ plan.icon }}</span>
+                <span><strong>{{ plan.title }}</strong><span class="plan-description">{{ plan.text }}</span></span>
+            </label>
+        </div>
+        <p class="plan-progress" role="status">{{ completedPlans.length === birthdayPlans.length ? 'Semua momen kecil sudah dirayakan! Semoga harimu menyenangkan, de. 🌟' : completedPlans.length + ' dari ' + birthdayPlans.length + ' momen kecil sudah dirayakan. Santai saja, de. ✨' }}</p>
+    </div>
+</section>
+<section id="closing">
+        <div class="section-content">
+            <div class="reveal">
+                <div class="section-title">Satu Pesan Lagi, De</div>
+                <div class="section-subtitle">🌟 Semangat dari Kak 🌟</div>
+            </div>
+            <div class="closing-card reveal">
+                <div class="tulip-bouquet" aria-hidden="true"><img src="assets/tulip.svg" width="120" height="180" alt=""><img src="assets/tulip.svg" width="120" height="180" alt=""><img src="assets/tulip.svg" width="120" height="180" alt=""></div>
+                <p class="closing-text">
+                    Dede, semoga usia 17 ini memberi banyak alasan untuk tersenyum,
+                    teman yang saling mendukung, dan kesempatan mencoba hal-hal yang dede suka.
+                    Kak ikut senang melihat setiap langkah kecil dede.
+                </p>
+                <p class="closing-text" style="margin-top:15px;">
+                    Jaga diri baik-baik, ya. Kalau capek, istirahat; kalau ingin cerita, boleh cerita ke kak.
+                    Tidak perlu jadi sempurna untuk membuat kak bangga. Tetap jadi diri dede sendiri. 🌱
+                </p>
+                <div class="closing-big-text">
+                    Selamat Ulang Tahun ke-17!
+                </div>
+                <div class="closing-emoji-row" aria-hidden="true">🌷 ✨ 🎂 ✨ 🌷</div><button class="btn-celebrate" type="button" @click="celebrate">Rayakan Lagi 🎉</button>
+            </div>
+        </div>
+    </section>
+  </main>
+<footer id="footer">
+        <div class="footer-hearts" aria-hidden="true">🌷 💛 ✨</div>
+        <p class="footer-text">
+            Kejutan kecil dari kak untuk <strong style="color:var(--primary-light)">dede Andini Sari</strong>
+        </p>
+        <div class="footer-indo">Happy 17th Birthday! 🇮🇩</div>
+        <div class="indo-accent" style="margin-top:15px"></div>
+        <p class="footer-text" style="margin-top:10px;font-size:12px;opacity:0.5">
+            Jaga diri, tetap semangat, dan nikmati harimu, de. 🌼
+        </p>
+    </footer>
+</div>
+<noscript><p class="noscript-note">Aktifkan JavaScript untuk membuka semua kejutan, musik, dan kue ulang tahun interaktif.</p></noscript>
+</body>
+</html>

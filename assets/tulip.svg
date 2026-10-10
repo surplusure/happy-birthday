@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="180" viewBox="0 0 120 180" fill="none">
+  <defs>
+    <linearGradient id="stem" x1="48" y1="70" x2="70" y2="170" gradientUnits="userSpaceOnUse"><stop stop-color="#b6cfa9"/><stop offset="1" stop-color="#64816d"/></linearGradient>
+    <linearGradient id="leaf" x1="25" y1="105" x2="74" y2="153" gradientUnits="userSpaceOnUse"><stop stop-color="#c1d3ad"/><stop offset=".5" stop-color="#91b396"/><stop offset="1" stop-color="#60856f"/></linearGradient>
+    <linearGradient id="petal" x1="32" y1="21" x2="80" y2="89" gradientUnits="userSpaceOnUse"><stop stop-color="#ffe2dd"/><stop offset=".4" stop-color="#f1abc0"/><stop offset="1" stop-color="#b96692"/></linearGradient>
+    <linearGradient id="front" x1="64" y1="37" x2="50" y2="90" gradientUnits="userSpaceOnUse"><stop stop-color="#ffd4db"/><stop offset=".55" stop-color="#e39ab5"/><stop offset="1" stop-color="#bd6f94"/></linearGradient>
+    <linearGradient id="inner" x1="65" y1="14" x2="65" y2="74" gradientUnits="userSpaceOnUse"><stop stop-color="#f8c7ce"/><stop offset="1" stop-color="#ba6b95"/></linearGradient>
+  </defs>
+  <path d="M61 81C59 111 67 135 59 173" stroke="url(#stem)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M62 154C43 147 21 126 22 101C43 110 58 127 62 154Z" fill="url(#leaf)"/>
+  <path d="M63 139C78 131 96 109 95 83C77 98 64 119 63 139Z" fill="url(#leaf)"/>
+  <path d="M25 106C40 124 51 139 61 152M92 90C78 110 70 124 64 138" stroke="#d2ddbb" stroke-opacity=".5" stroke-width="1" stroke-linecap="round"/>
+  <path d="M35 50C37 35 51 24 61 15C69 27 85 32 86 54L73 78H47Z" fill="url(#inner)"/>
+  <path d="M61 84C32 81 22 54 28 24C44 29 60 44 65 64L61 84Z" fill="url(#petal)"/>
+  <path d="M59 85C85 82 96 56 91 24C76 28 61 43 56 65L59 85Z" fill="url(#petal)"/>
+  <path d="M34 46C40 47 52 56 60 58C70 56 79 47 87 44C87 71 77 88 60 88C43 87 34 69 34 46Z" fill="url(#front)"/>
+  <path d="M32 31C35 45 40 57 47 64M86 31C81 43 76 51 70 55" stroke="#fff1e7" stroke-opacity=".6" stroke-width="1.4" stroke-linecap="round"/>
+  <path d="M41 57C43 70 49 79 56 81" stroke="#ffe8e1" stroke-opacity=".4" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Selamat Ulang Tahun ke-17 Andini Sari! Happy 17th Birthday!">
+    <title>🎂 Happy 17th Birthday Andini Sari! 🎉</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-gift">🎁</div>
+        <div class="preloader-text">Menyiapkan Kejutan...</div>
+    </div>
+
+    <!-- Particles Background -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Confetti Canvas -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- Audio Toggle -->
+    <button id="audio-toggle" title="Toggle Music">🎵</button>
+
+    <!-- Navigation Dots -->
+    <nav class="nav-dots" id="nav-dots">
+        <div class="nav-dot active" data-section="hero" data-label="Home" onclick="scrollToSection('hero')"></div>
+        <div class="nav-dot" data-section="letter" data-label="Surat" onclick="scrollToSection('letter')"></div>
+        <div class="nav-dot" data-section="about" data-label="Profile" onclick="scrollToSection('about')"></div>
+        <div class="nav-dot" data-section="wishes" data-label="Wishes" onclick="scrollToSection('wishes')"></div>
+        <div class="nav-dot" data-section="cake" data-label="Cake" onclick="scrollToSection('cake')"></div>
+        <div class="nav-dot" data-section="timeline" data-label="Moments" onclick="scrollToSection('timeline')"></div>
+        <div class="nav-dot" data-section="countdown-section" data-label="Countdown" onclick="scrollToSection('countdown-section')"></div>
+        <div class="nav-dot" data-section="gallery" data-label="Gallery" onclick="scrollToSection('gallery')"></div>
+        <div class="nav-dot" data-section="closing" data-label="Penutup" onclick="scrollToSection('closing')"></div>
+    </nav>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section id="hero">
+        <!-- Floating Emojis -->
+        <div class="floating-emoji" style="top:10%;left:5%;animation-delay:0s;font-size:25px">🎈</div>
+        <div class="floating-emoji" style="top:20%;right:10%;animation-delay:1s;font-size:35px">🎀</div>
+        <div class="floating-emoji" style="top:60%;left:8%;animation-delay:2s;font-size:28px">🌸</div>
+        <div class="floating-emoji" style="top:70%;right:5%;animation-delay:0.5s;font-size:32px">✨</div>
+        <div class="floating-emoji" style="top:40%;left:15%;animation-delay:1.5s;font-size:22px">🦋</div>
+        <div class="floating-emoji" style="top:80%;right:15%;animation-delay:2.5s;font-size:30px">🎊</div>
+        <div class="floating-emoji" style="top:15%;left:50%;animation-delay:3s;font-size:26px">💖</div>
+        <div class="floating-emoji" style="bottom:10%;left:30%;animation-delay:1.8s;font-size:24px">🌺</div>
+
+        <!-- Lanterns -->
+        <div class="lantern" style="top:5%;left:20%;background:rgba(255,0,0,0.4);animation-delay:0s"></div>
+        <div class="lantern" style="top:3%;right:25%;background:rgba(255,215,0,0.4);animation-delay:1s"></div>
+        <div class="lantern" style="top:8%;left:60%;background:rgba(233,30,140,0.4);animation-delay:0.5s"></div>
+
+        <div class="section-content">
+            <div class="hero-badge">🎉 9 Oktober 2026 🎉</div>
+            <h1 class="hero-name">Andini Sari</h1>
+            <h2 class="hero-subtitle">Happy 17th Birthday!</h2>
+            <div class="indo-accent"></div>
+            <div class="hero-age" id="age-badge">
+                <span>17</span>
+            </div>
+            <p class="hero-message">
+                Selamat ulang tahun yang ke-17! 🌟<br>
+                Website ini aku buat khusus untukmu. Scroll ke bawah ya! 💕
+            </p>
+            <div class="hero-cta">
+                <button class="btn-celebrate" id="btn-start" onclick="startCelebration()">
+                    <span>🎉</span> Buka Kejutannya <span>🎉</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <div class="batik-divider"></div>
+
+    <!-- ==================== LETTER SECTION ==================== -->
+    <section id="letter">
+        <div class="section-content">
+            <div class="reveal">
+                <div class="section-title">Surat Untukmu</div>
+                <div class="section-subtitle">💌 A Letter For You 💌</div>
+            </div>
+            <div class="letter-card reveal">
+                <div class="letter-greeting">Dear Andini Sari,</div>
+                <div class="letter-body">
+                    <p>Selamat ulang tahun yang ke-17! 🎂</p>
+                    <p>
+                        Di hari spesial ini, aku ingin bilang bahwa kamu adalah seseorang yang sangat berarti.
+                        Senyumanmu bisa membuat hari siapa pun menjadi lebih cerah, dan kebaikan hatimu
+                        selalu menginspirasi orang-orang di sekitarmu.
+                    </p>
+                    <p>
+                        17 tahun bukan sekadar angka — ini adalah awal dari petualangan baru yang lebih seru!
+                        Semoga di usia 17 ini, semua mimpi-mimpimu mulai terwujud satu per satu. 
+                        Kamu layak mendapatkan semua kebahagiaan di dunia ini. ✨
+                    </p>
+                    <p>
+                        Terima kasih sudah menjadi kamu yang apa adanya. 
+                        Jangan pernah berubah, karena kamu sudah sempurna seperti ini. 💖
+                    </p>
+                </div>
+                <div class="letter-signature">
+                    — Dari seseorang yang peduli padamu 🌸
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="batik-divider"></div>
+
+    <!-- ==================== ABOUT SECTION ==================== -->
+    <section id="about">
+        <div class="section-content">
+            <div class="reveal">
+                <div class="section-title">The Birthday Girl</div>
+                <div class="section-subtitle">✨ Yang Berulang Tahun ✨</div>
+            </div>
+            <div class="profile-card reveal">
+                <div class="profile-avatar">
+                    <span class="avatar-text">A</span>
+                </div>
+                <h3 class="profile-name">Andini Sari</h3>
+                <div class="indo-accent"></div>
+                <div class="profile-info">
+                    <div class="info-chip">
+                        <span class="chip-icon">🇮🇩</span> Indonesia
+                    </div>
+                    <div class="info-chip">
+                        <span class="chip-icon">👩</span> Perempuan
+                    </div>
+                    <div class="info-chip">
+                        <span class="chip-icon">🎂</span> 17 Tahun
+                    </div>
+                    <div class="info-chip">
+                        <span class="chip-icon">🌺</span> Cantik
+                    </div>
+                    <div class="info-chip">
+                        <span class="chip-icon">💫</span> Baik Hati
+                    </div>
+                    <div class="info-chip">
+                        <span class="chip-icon">🌸</span> Penuh Semangat
+                    </div>
+                    <div class="info-chip">
+                        <span class="chip-icon">😊</span> Ceria
+                    </div>
+                    <div class="info-chip">
+                        <span class="chip-icon">⭐</span> Istimewa
+                    </div>
+                </div>
+                <p class="profile-quote">
+                    Gadis yang senyumannya bisa menerangi ruangan mana pun, 
+                    dan kehadirannya membuat dunia terasa lebih indah.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <div class="batik-divider"></div>
+
+    <!-- ==================== WISHES SECTION ==================== -->
+    <section id="wishes">
+        <div class="section-content">
+            <div class="reveal">
+                <div class="section-title">Doa & Harapan</div>
+                <div class="section-subtitle">🌟 Wishes for You 🌟</div>
+            </div>
+            <div class="wishes-grid">
+                <div class="wish-card reveal">
+                    <span class="wish-icon">💖</span>
+                    <h4 class="wish-title">Kebahagiaan</h4>
+                    <p class="wish-text">Semoga hidupmu selalu dipenuhi tawa dan kebahagiaan. Jangan lupa untuk selalu tersenyum ya!</p>
+                </div>
+                <div class="wish-card reveal">
+                    <span class="wish-icon">📚</span>
+                    <h4 class="wish-title">Kesuksesan</h4>
+                    <p class="wish-text">Semoga sekolahnya lancar, nilai-nilainya bagus, dan semua cita-citamu tercapai!</p>
+                </div>
+                <div class="wish-card reveal">
+                    <span class="wish-icon">💪</span>
+                    <h4 class="wish-title">Kesehatan</h4>
+                    <p class="wish-text">Semoga selalu sehat dan kuat. Jangan lupa makan teratur dan istirahat yang cukup!</p>
+                </div>
+                <div class="wish-card reveal">
+                    <span class="wish-icon">🤲</span>
+                    <h4 class="wish-title">Keberkahan</h4>
+                    <p class="wish-text">Semoga Allah SWT selalu memberkahi setiap langkahmu dan menjagamu di mana pun kamu berada.</p>
+                </div>
+                <div class="wish-card reveal">
+                    <span class="wish-icon">🦋</span>
+                    <h4 class="wish-title">Kepercayaan Diri</h4>
+                    <p class="wish-text">Di usia 17 ini, semoga kamu semakin percaya diri dan berani mengejar semua impianmu!</p>
+                </div>
+                <div class="wish-card reveal">
+                    <span class="wish-icon">🌈</span>
+                    <h4 class="wish-title">Petualangan Baru</h4>
+                    <p class="wish-text">Semoga tahun ini penuh dengan pengalaman seru dan kenangan indah yang tak terlupakan!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="batik-divider"></div>
+
+    <!-- ==================== CAKE SECTION ==================== -->
+    <section id="cake">
+        <div class="section-content">
+            <div class="reveal">
+                <div class="section-title">Tiup Lilinnya!</div>
+                <div class="section-subtitle">🎂 Make a Wish 🎂</div>
+            </div>
+            <div class="cake-container reveal" id="cake-interactive" onclick="blowCandles()">
+                <!-- Candles -->
+                <div class="candles-container">
+                    <div class="candle">
+                        <div class="candle-stripe"></div>
+                        <div class="candle-stripe"></div>
+                        <div class="candle-stripe"></div>
+                        <div class="flame-wrapper" id="flame-1">
+                            <div class="flame-glow"></div>
+                            <div class="flame"></div>
+                        </div>
+                        <div class="smoke" id="smoke-1"></div>
+                    </div>
+                    <div class="candle">
+                        <div class="candle-stripe"></div>
+                        <div class="candle-stripe"></div>
+                        <div class="candle-stripe"></div>
+                        <div class="flame-wrapper" id="flame-2">
+                            <div class="flame-glow"></div>
+                            <div class="flame"></div>
+                        </div>
+                        <div class="smoke" id="smoke-2"></div>
+                    </div>
+                    <div class="candle">
+                        <div class="candle-stripe"></div>
+                        <div class="candle-stripe"></div>
+                        <div class="candle-stripe"></div>
+                        <div class="flame-wrapper" id="flame-3">
+                            <div class="flame-glow"></div>
+                            <div class="flame"></div>
+                        </div>
+                        <div class="smoke" id="smoke-3"></div>
+                    </div>
+                </div>
+                <!-- Cake Layers -->
+                <div class="cake-layer cake-layer-3">
+                    <div class="cake-drip" style="left:20%"></div>
+                    <div class="cake-drip" style="left:60%"></div>
+                    <div class="cake-drip" style="right:15%"></div>
+                </div>
+                <div class="cake-layer cake-layer-2">
+                    <div class="cake-drip" style="left:15%"></div>
+                    <div class="cake-drip" style="left:45%"></div>
+                    <div class="cake-drip" style="right:20%"></div>
+                </div>
+                <div class="cake-layer cake-layer-1">
+                    <div class="cake-drip" style="left:10%"></div>
+                    <div class="cake-drip" style="left:35%"></div>
+                    <div class="cake-drip" style="left:65%"></div>
+                    <div class="cake-drip" style="right:10%"></div>
+                </div>
+            </div>
+            <p class="cake-instruction" id="cake-instruction">👆 Klik kue untuk meniup lilin!</p>
+            <div class="cake-message" id="cake-message">Happy 17th Birthday, Andini! 🎉</div>
+        </div>
+    </section>
+
+    <div class="batik-divider"></div>
+
+    <!-- ==================== TIMELINE SECTION ==================== -->
+    <section id="timeline">
+        <div class="section-content">
+            <div class="reveal">
+                <div class="section-title">Perjalanan 17 Tahun</div>
+                <div class="section-subtitle">💫 Your Journey So Far 💫</div>
+            </div>
+            <div class="timeline-container">
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-emoji">👶</div>
+                        <div class="timeline-title">Lahir ke Dunia</div>
+                        <div class="timeline-text">9 Oktober 2009 — Seorang gadis cantik bernama Andini Sari lahir, membawa kebahagiaan bagi dunia ini.</div>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-emoji">🎒</div>
+                        <div class="timeline-title">Masa Kecil yang Ceria</div>
+                        <div class="timeline-text">Tumbuh menjadi anak yang penuh semangat, selalu ceria, dan membuat semua orang di sekitarnya tersenyum.</div>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-emoji">🌺</div>
+                        <div class="timeline-title">Masa Remaja</div>
+                        <div class="timeline-text">Berkembang menjadi gadis yang cantik, pintar, dan berkarakter. Setiap langkahmu penuh makna.</div>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-emoji">🎂</div>
+                        <div class="timeline-title">Hari Ini — 17 Tahun!</div>
+                        <div class="timeline-text">Sekarang kamu berusia 17! Sebuah usia yang penuh dengan potensi dan harapan. Dunia sudah siap untukmu! 🚀</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="batik-divider"></div>
+
+    <!-- ==================== COUNTDOWN SECTION ==================== -->
+    <section id="countdown-section">
+        <div class="section-content">
+            <div class="reveal">
+                <div class="section-title">Hitungan Mundur</div>
+                <div class="section-subtitle" id="countdown-label">⏰ Menuju Ulang Tahun ke-18 ⏰</div>
+            </div>
+            <div class="countdown-grid reveal">
+                <div class="countdown-item">
+                    <div class="countdown-value" id="cd-days">000</div>
+                    <div class="countdown-label">Hari</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="cd-hours">00</div>
+                    <div class="countdown-label">Jam</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="cd-minutes">00</div>
+                    <div class="countdown-label">Menit</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="cd-seconds">00</div>
+                    <div class="countdown-label">Detik</div>
+                </div>
+            </div>
+            <p class="reveal" style="color:var(--text-secondary);font-size:14px;">
+                Setiap detik adalah hitung mundur menuju momen indah berikutnya! 🌟
+            </p>
+        </div>
+    </section>
+
+    <div class="batik-divider"></div>
+
+    <!-- ==================== GALLERY SECTION ==================== -->
+    <section id="gallery">
+        <div class="section-content">
+            <div class="reveal">
+                <div class="section-title">Galeri Kenangan</div>
+                <div class="section-subtitle">📸 Memories Gallery 📸</div>
+            </div>
+            <div class="gallery-grid reveal">
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        <span style="font-size:60px">🌺</span>
+                        <span>Kenangan Terindah</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        <span>🎉</span>
+                        <span>Pesta!</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        <span>🌸</span>
+                        <span>Senyuman</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        <span>💖</span>
+                        <span>Moment</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        <span>✈️</span>
+                        <span>Petualangan</span>
+                    </div>
+                </div>
+            </div>
+            <p class="reveal" style="color:var(--text-secondary);font-size:13px;margin-top:20px;opacity:0.6;">
+                ✨ Tempat untuk mengisi foto-foto kenanganmu ✨
+            </p>
+        </div>
+    </section>
+
+    <div class="batik-divider"></div>
+
+    <!-- ==================== CLOSING SECTION ==================== -->
+    <section id="closing">
+        <div class="section-content">
+            <div class="reveal">
+                <div class="section-title">Penutup</div>
+                <div class="section-subtitle">💝 Last Words 💝</div>
+            </div>
+            <div class="closing-card reveal">
+                <div class="closing-emoji">🎂</div>
+                <p class="closing-text">
+                    Andini, semoga di usia 17 ini kamu selalu bahagia, 
+                    selalu dikelilingi orang-orang yang menyayangimu, 
+                    dan semua mimpimu menjadi kenyataan.
+                </p>
+                <p class="closing-text" style="margin-top:15px;">
+                    Kamu pantas mendapatkan yang terbaik di dunia ini. 
+                    Jangan pernah berhenti jadi dirimu sendiri. 💖
+                </p>
+                <div class="closing-big-text">
+                    Selamat Ulang Tahun ke-17!
+                </div>
+                <div class="closing-emoji-row">🎉🎈🎂🎀🎊</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer id="footer">
+        <div class="footer-hearts">💖 💖 💖</div>
+        <p class="footer-text">
+            Dibuat dengan sepenuh ❤️ untuk <strong style="color:var(--primary-light)">Andini Sari</strong>
+        </p>
+        <div class="footer-indo">Happy 17th Birthday! 🇮🇩</div>
+        <div class="indo-accent" style="margin-top:15px"></div>
+        <p class="footer-text" style="margin-top:10px;font-size:12px;opacity:0.5">
+            9 Oktober 2026 • With Love 🌺
+        </p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

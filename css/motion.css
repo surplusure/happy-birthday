@@ -1,0 +1,108 @@
+/* Scroll effects enhance the existing layout without changing its dimensions. */
+/* One shared atmosphere spans all chapters; only its glow opacity changes. */
+.page-atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  --purple-weight: .6;
+  --pink-weight: .4;
+  --gold-weight: 0;
+}
+.page-atmosphere span {
+  position: absolute;
+  inset: 0;
+  will-change: opacity;
+}
+.glow-purple {
+  opacity: var(--purple-weight);
+  background: radial-gradient(ellipse at 25% 35%, #7c3aed30, transparent 75%);
+}
+.glow-pink {
+  opacity: var(--pink-weight);
+  background: radial-gradient(ellipse at 80% 65%, #e91e8c30, transparent 75%);
+}
+.glow-gold {
+  opacity: var(--gold-weight);
+  background: radial-gradient(ellipse at 55% 50%, #fbbf241c, transparent 75%);
+}
+:is(#hero, #letter, #about, #teen-years, #wishes, #little-notes, #cake, #birthday-plans, #closing) {
+  background: transparent;
+}
+main section:not(#hero) {
+  min-height: auto;
+  padding-top: 3.75rem;
+  padding-bottom: 3.75rem;
+}
+#hero { padding-bottom: 2.5rem; }
+#footer { border-top: 0; background: transparent; padding-top: 1.5rem; }
+
+.reading-progress {
+  position: fixed;
+  inset: 0 0 auto;
+  height: 3px;
+  z-index: 9999;
+  pointer-events: none;
+}
+.reading-progress span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: scaleX(var(--reading-progress, 0));
+  transform-origin: left;
+  background: linear-gradient(90deg, #e91e8c, #b795ff, #fbbf24);
+  box-shadow: 0 0 10px #ff6bc180;
+}
+
+/* Individual transform properties preserve existing hover and cake transforms. */
+[data-scroll] {
+  --enter-x: 0px;
+  --enter-y: 28px;
+  --enter-scale: 1;
+  --enter-rotation: 0deg;
+}
+[data-scroll="title"] { --enter-y: 24px; }
+[data-scroll="card"] { --enter-y: 44px; --enter-scale: .965; }
+[data-scroll="card"][data-side="left"] { --enter-x: -12px; --enter-rotation: -.7deg; }
+[data-scroll="card"][data-side="right"] { --enter-x: 12px; --enter-rotation: .7deg; }
+[data-scroll][data-visible="false"] {
+  opacity: 0;
+  translate: var(--enter-x) var(--enter-y);
+  scale: var(--enter-scale);
+  rotate: var(--enter-rotation);
+}
+[data-scroll][data-visible="true"] {
+  opacity: 1;
+  translate: 0 0;
+  scale: 1;
+  rotate: 0deg;
+  transition:
+    opacity .65s ease,
+    translate .8s cubic-bezier(.16, 1, .3, 1),
+    scale .8s cubic-bezier(.16, 1, .3, 1),
+    rotate .8s cubic-bezier(.16, 1, .3, 1),
+    transform .2s ease, border-color .2s ease, background .2s ease;
+  transition-delay: var(--scroll-delay, 0ms), var(--scroll-delay, 0ms),
+    var(--scroll-delay, 0ms), var(--scroll-delay, 0ms), 0ms, 0ms, 0ms;
+}
+[data-scroll][data-instant="true"] { transition: none; }
+
+#hero .floating-emoji { translate: 0 var(--hero-drift, 0px); }
+#hero .floating-emoji:nth-child(even) { translate: 0 calc(var(--hero-drift, 0px) * -.65); }
+
+@media (max-width: 820px), (max-width: 1100px) and (hover: none) and (pointer: coarse) {
+  main section:not(#hero) { padding-top: 2rem; padding-bottom: 2rem; }
+  #hero { padding-bottom: 1.5rem; }
+  [data-scroll="card"] { --enter-y: 32px; --enter-scale: .98; }
+  [data-scroll="card"][data-side] { --enter-x: 0px; --enter-rotation: 0deg; }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-scroll][data-visible] {
+    opacity: 1;
+    translate: none;
+    scale: none;
+    rotate: none;
+    transition: none;
+  }
+  #hero .floating-emoji { translate: none; }
+}

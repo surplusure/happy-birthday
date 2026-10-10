@@ -1,0 +1,10 @@
+Use case: stylized-concept
+Asset type: birthday webpage hero card illustration
+Subject: elegant playful 3D pastel lavender and butter-yellow birthday cake for a girl's seventeenth birthday, scalloped vintage piping, tiny pink cherries, cream pedestal, number 17 lavender candles on top, unlit with no flames; a few floating soft pastel balloons behind the cake.
+Composition: portrait 4:5, centered cake with generous surrounding space, solid light lilac #e9dffa background.
+Style: sophisticated editorial clay 3D, glossy balloons, charming soft studio lighting, lavender, cream and pale yellow palette.
+Constraints: no person, no text other than the 17 numerals, no interface.
+Method: built-in imagegen tool.
+
+Final submitted prompt:
+Elegant playful editorial clay 3D lavender and butter-yellow seventeenth birthday cake; scalloped vintage cream/lavender piping, tiny pink cherries, cream pedestal, lavender numeral 17 candles with visible unlit wicks, pastel glossy balloons behind, light lilac #e9dffa studio backdrop, portrait 4:5, centered, soft studio lighting; no person, other text, interface, logo, watermark or flames.
