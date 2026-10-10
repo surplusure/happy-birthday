@@ -1,0 +1,159 @@
+/* Illustrated stationery layers, inspired by the user's design board. */
+.garden-atmosphere { position: fixed; inset: 0; z-index: 0; pointer-events: none; background: #fff7f5 url(../assets/birthday-garden-v3.png) center / 100% 100% no-repeat; opacity: .72; }
+.page-atmosphere { opacity: .4; }
+main, #footer { position: relative; z-index: 1; }
+main section:not(#hero) { padding-block: 38px; }
+section .section-content { max-width: 880px; }
+.section-subtitle { margin-bottom: 24px; }
+.section-title { position: relative; width: fit-content; max-width: 100%; margin-inline: auto; }
+.section-title::before, .section-title::after { content: '✧'; position: absolute; font-family: Georgia, serif; font-size: 23px; color: #cfaa63; top: 12px; }
+.section-title::before { left: -38px; rotate: -10deg; }
+.section-title::after { right: -38px; rotate: 10deg; }
+.cover-garden { position: absolute; inset: 0; z-index: 1; background: url(../assets/birthday-garden-v3.png) center / 100% 100% no-repeat; pointer-events: none; transition: opacity .5s ease; }
+.cover-door { background-image: url(../assets/birthday-garden-v3.png); background-size: 200% 100%; }
+.cover-door--left { background-position: left center; }.cover-door--right { background-position: right center; }
+.is-opening .cover-garden, .is-opening .cover-sparkles { opacity: 0; }
+.door-inset { border-color: #dcb5c259; box-shadow: none; }
+.door-inset::before { display: none; }
+.door-tulip { display: none; }
+.cover-content { width: min(90vw, 600px); padding-top: 72px; }
+.cover-illustration { width: 295px; margin-block: 6px; animation: kitten-float 5s ease-in-out infinite; }
+.cover-eyebrow { margin-bottom: 13px; }
+.cover-greeting { font-size: 20px; }
+.cover-bunting { opacity: 1; width: min(100vw, 850px); }
+.cover-footnote { color: #926c7f; }
+#cover-description { width: fit-content; margin-inline: auto; padding: 3px 12px; background: #fff8f1c9; border-radius: 16px; }
+#birthday-heading:focus { outline: none; }
+.cover-sparkles { position: absolute; inset: 0; z-index: 2; pointer-events: none; transition: opacity .35s; }
+.cover-sparkles i { position: absolute; color: #d5a566; font-size: 28px; font-style: normal; animation: sparkle-twinkle 3.5s ease-in-out infinite; }
+.cover-sparkles i:nth-child(1) { left: 19%; top: 20%; }
+.cover-sparkles i:nth-child(2) { right: 21%; top: 35%; animation-delay: -1s; font-size: 17px; }
+.cover-sparkles i:nth-child(3) { left: 27%; bottom: 28%; animation-delay: -2s; }
+.cover-sparkles i:nth-child(4) { right: 29%; bottom: 22%; animation-delay: -1.5s; font-size: 17px; }
+.cover-sparkles i:nth-child(5) { left: 9%; top: 45%; animation-delay: -2.5s; }
+.cover-sparkles i:nth-child(6) { right: 10%; top: 59%; font-size: 16px; }
+.page-bunting { opacity: .85; top: 56px; width: min(92vw, 920px); }
+#hero { min-height: min(820px, 100svh); padding-block: 120px 40px; }
+.hero-art { animation: kitten-float 6s ease-in-out infinite; }
+.hero-art img { max-height: 460px; }
+.hero-badge { box-shadow: 0 3px 0 #f6d7e2; }
+.btn-celebrate { border-radius: 30px; }
+.letter-card { background: repeating-linear-gradient(transparent 0 33px, #e5cdb926 33px 34px), #fffcf3; border: 1px solid #e5bead; outline: 5px solid #ffefecb0; box-shadow: 7px 8px 0 #f5d5dc99, -5px -4px 0 #fff0e4; }
+.letter-card::before, .letter-card::after { background: repeating-linear-gradient(45deg, #eeaabd90 0 6px, #f5b9c990 6px 12px); width: 86px; }
+.letter-postmark { position: absolute; top: 85px; right: 26px; width: 66px; height: 66px; border: 2px dashed #c997a7; border-radius: 50%; rotate: 13deg; font-size: 8px; line-height: 1.5; color: #b38094; padding-top: 11px; text-align: center; opacity: .65; }
+.letter-postmark::first-line { font-size: 22px; }
+.letter-greeting { position: relative; }
+.letter-signature { border-top: 1px dashed #e8c4cc; padding-top: 20px; }
+.profile-card, .teen-card, .wish-card, .birthday-plan, .music-card, .surprise-card { position: relative; background-color: #fffaf6f2; box-shadow: 0 6px 0 #f5dce580, 0 9px 22px #ba7f9410; }
+.profile-card { border: 1px solid #ebbacb; border-radius: 12px 28px 12px 28px; }
+.teen-card, .wish-card { padding: 25px; border-radius: 10px 25px 10px 25px; border-color: #e9c0cf; }
+.teen-card::after { content: ''; position: absolute; right: 12px; top: 12px; width: 40px; height: 28px; background: url(../assets/birthday-bow.svg) center / contain no-repeat; opacity: .7; }
+.teen-card:nth-child(2n), .wish-card:nth-child(2n) { background-color: #fff0f6ed; }
+.birthday-note { border-radius: 6px 18px 6px 18px; border-style: dashed; box-shadow: 3px 4px 0 #efd0db70; }
+.birthday-note.is-open .note-message { animation: note-unfold .45s ease both; }
+.birthday-plan { border-radius: 10px; }
+.birthday-plan.is-done .plan-icon { animation: stamp-in .45s cubic-bezier(.2, .9, .4, 1.4); }
+.petal-drift { position: fixed; inset: 0; z-index: 2; pointer-events: none; overflow: hidden; }
+.petal-drift i { position: absolute; left: calc(var(--n) * 10%); top: -25px; width: 9px; height: 15px; background: #eca3b570; border: 1px solid #f0b3bf55; border-radius: 75% 0 70% 35%; animation: petal-fall calc(14s + var(--n) * 1.5s) linear infinite; animation-delay: calc(var(--n) * -3s); }
+.wish-picker { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 18px; }
+.wish-picker button { min-height: 44px; padding: 8px 17px; border: 1px solid #e2b5c7; border-radius: 22px; background: #fff8f6; color: #94617b; font: inherit; font-size: 14px; cursor: pointer; }
+.wish-picker button[aria-pressed="true"] { background: #f6d7e5; color: #92435f; border-color: #d397b0; box-shadow: inset 0 0 0 2px #fff4f4; }
+.cake-scene { position: relative; max-width: 550px; margin-inline: auto; padding: 56px 18px 20px; border: 1px solid #edc2d1; border-radius: 22px; background: url(../assets/birthday-garden-v3.png) center / 100% 100%; box-shadow: 0 7px 0 #f3d4df80; overflow: hidden; }
+.scene-bunting { position: absolute; left: 0; top: -7px; width: 100%; height: auto; }
+.cake-scene-label { position: relative; font-family: 'Great Vibes', cursive; font-size: 34px; color: #b8577c; line-height: 1.3; margin: 0 0 -8px; }
+#cake-interactive { display: block; position: relative; width: 100%; height: auto; aspect-ratio: 1; margin: 0 auto; border-radius: 24px; cursor: pointer; }
+#cake-interactive:disabled { cursor: default; opacity: 1; }
+.cake-watercolor { display: block; width: 100%; height: 100%; object-fit: contain; }
+.birthday-candles { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.candle-smoke { stroke: #a4899c; stroke-width: 3px; stroke-dasharray: 130; stroke-dashoffset: 130; }
+.cake-scene-star { position: absolute; color: #d3a665; font-family: Georgia, serif; animation: sparkle-twinkle 3s infinite; }
+.star-one { left: 10%; top: 26%; font-size: 36px; }.star-two { right: 12%; top: 23%; font-size: 18px; }
+.cake-scene-caption { position: relative; font-size: 14px; line-height: 1.8; color: #90667d; margin: 3px 0 0; background: #fffaf7cb; border-radius: 16px; padding: 10px; }
+.cake-instruction { max-width: 550px; margin: 22px auto 12px; }
+.wind-ribbon { position: absolute; top: 30%; left: 10%; width: 36%; height: 20px; border-top: 3px solid #fffef3; border-radius: 50%; opacity: 0; }
+.wind-ribbon--two { top: 33%; left: 5%; width: 43%; }
+.is-blowing .wind-ribbon { animation: candle-wind .6s ease-out both; }.is-blowing .wind-ribbon--two { animation-delay: .1s; }
+.wish-burst { position: absolute; inset: 0; pointer-events: none; }
+.wish-burst span { position: absolute; left: 50%; top: 42%; opacity: 0; color: #d8ad61; font-size: 25px; }
+.wish-complete .wish-burst span { animation: wish-stars 1.4s ease-out both; --angle: calc(var(--i) * 45deg); }
+.cake-message { font-size: 35px; }
+.music-card { max-width: 720px; margin-inline: auto; display: grid; grid-template-columns: 145px 1fr; gap: 23px; padding: 30px; border: 1px solid #e9bdce; border-radius: 20px; text-align: left; }
+.music-cover { aspect-ratio: 1; position: relative; background: #f9dce7; border: 5px solid #fffaf4; box-shadow: 0 3px 10px #bd8a9e24; border-radius: 10px; rotate: -4deg; }
+.music-cover img { width: 100%; height: 100%; object-fit: contain; }
+.music-cover span { position: absolute; right: -8px; bottom: -8px; border: 2px solid #fff8f2; border-radius: 50%; background: #d392af; color: white; width: 38px; height: 38px; text-align: center; font-size: 20px; font-family: Georgia, serif; }
+.music-copy h3 { color: #a25675; font-size: 20px; margin: 5px 0 8px; }.music-copy p, .music-note { font-size: 15px; line-height: 1.8; color: #896b7a; }
+.music-play { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; margin-top: 14px; border: 1px solid #e3a9c0; border-radius: 25px; padding: 8px 16px; background: #ffeaf2; color: #aa4e78; font: inherit; font-size: 15px; cursor: pointer; }.music-play > span { font-size: 24px; }
+.music-wave { grid-column: 1/-1; display: flex; height: 45px; align-items: center; justify-content: center; gap: 5px; border-top: 1px solid #edd1db; padding-top: 15px; }
+.music-wave i { width: 4px; height: calc(var(--bar) * 1px); background: #db8dab; border-radius: 3px; opacity: .65; transform: scaleY(.35); }
+.is-playing .music-wave i { animation: music-beat .75s ease-in-out infinite alternate; animation-delay: calc(var(--beat) * -.12s); }.is-playing .music-cover { animation: music-rock 3s ease-in-out infinite; }
+.music-note { grid-column: 1/-1; text-align: center; margin: 0; }
+.surprise-card { max-width: 720px; margin-inline: auto; padding: 35px 30px; border: 1px solid #e8b9cc; border-radius: 25px; background-image: url(../assets/little-stars.svg); background-size: 240px 230px; background-position: center 60px; }
+.surprise-bunny { position: absolute; right: 17px; top: 12px; width: 65px; height: auto; }.surprise-intro { color: #8d6279; font-size: 17px; line-height: 1.9; margin-bottom: 18px; padding-inline: 32px; }
+.present-box { position: relative; display: block; width: 185px; height: 200px; margin: 35px auto 20px; border: 0; background: none; cursor: pointer; font: inherit; }.present-box:disabled { cursor: default; }
+.present-body { position: absolute; left: 10px; right: 10px; top: 65px; bottom: 8px; border: 2px solid #d786a5; border-radius: 5px 5px 13px 13px; background: repeating-linear-gradient(90deg, #f7bbd4 0 22px, #ffd4e3 22px 43px); box-shadow: inset -9px -7px 0 #d786a528, 0 10px 15px #b06e8c1c; }
+.present-body::after { content: ''; position: absolute; top: 0; bottom: 0; left: 43%; width: 15%; background: #fff2cf; border-inline: 1px solid #dbbc89; }.present-body > span { position: absolute; z-index: 1; left: 20px; bottom: 18px; font-size: 11px; padding: 5px 9px; background: #fff9ee; border: 1px solid #ddb7b9; rotate: -7deg; color: #9a687c; }
+.present-lid { position: absolute; z-index: 2; top: 42px; left: 0; width: 100%; height: 34px; border: 2px solid #d786a5; border-radius: 7px; background: #f5b1cd; box-shadow: 0 6px 0 #d786a536; transform-origin: 10% 80%; transition: transform .9s cubic-bezier(.2,.8,.3,1), opacity .8s; }
+.present-lid img { position: absolute; width: 110px; height: auto; left: 36px; bottom: 17px; filter: drop-shadow(0 3px 0 #b5678a30); }.present-shine { position: absolute; top: 0; right: -10px; font-size: 34px; color: #d6a863; animation: sparkle-twinkle 2s infinite; }
+.present-box:hover .present-lid { transform: rotate(-5deg) translateY(-5px); }.is-unwrapped .present-lid { transform: translate(-45px,-65px) rotate(-28deg); opacity: 0; }.is-unwrapped .present-box { height: 0; margin-block: 0; pointer-events: none; }.is-unwrapped .present-body { animation: present-away .6s ease both; }
+.present-hint { font-size: 14px; color: #b57592; }.tulip-surprise { animation: note-unfold .8s .2s both; }.tulip-surprise h3 { font-family: 'Great Vibes', cursive; font-size: 37px; color: #a9567a; font-weight: 400; }.tulip-surprise > p { font-size: 15px; color: #976f85; line-height: 1.8; }
+.tulip-picks { display: flex; justify-content: center; gap: 4px; margin: 20px auto; }.tulip-picks button { width: 76px; min-height: 120px; position: relative; padding: 0; border: 0; background: none; cursor: pointer; transition: transform .3s; }.tulip-picks img { width: 100%; height: auto; filter: hue-rotate(calc(var(--hue, 0) * 1deg)); }.tulip-picks button:nth-child(2) { --hue: 15; rotate: -6deg; }.tulip-picks button:nth-child(4) { --hue: -12; rotate: 6deg; }.tulip-picks span { position: absolute; bottom: 0; left: 50%; translate: -50% 0; width: 24px; height: 24px; border-radius: 50%; color: #ae6985; background: #fff4e9; border: 1px solid #e6c0cb; font-size: 13px; }.tulip-picks .picked { transform: translateY(-10px); }.tulip-picks .picked span { background: #e9f0dd; color: #76916a; }
+.tulip-messages { list-style: none; padding: 0; text-align: left; display: grid; gap: 10px; }.tulip-messages li { padding: 13px 18px 13px 34px; position: relative; background: #fffaf1; border: 1px dashed #dfbdc6; border-radius: 10px; color: #896176; font-size: 16px; line-height: 1.8; animation: note-unfold .4s both; }.tulip-messages li::before { content: '✧'; position: absolute; left: 12px; color: #c6a264; }.bouquet-progress { margin-top: 17px; }
+.closing-card { max-width: 720px; margin-inline: auto; padding: 35px 40px; background: #fff6f3e6 url(../assets/birthday-garden-v3.png) center / 100% 100%; border: 1px solid #ecc3d2; border-radius: 25px; box-shadow: 0 7px 0 #f5d8e480; }.closing-text { position: relative; }.closing-big-text { font-size: 43px; }
+button:focus-visible { outline: 2px solid #b2698d; outline-offset: 4px; }
+@keyframes kitten-float { 0%,100% { transform: translateY(0) rotate(-.5deg); } 50% { transform: translateY(-7px) rotate(.5deg); } }
+@keyframes sparkle-twinkle { 0%,100% { opacity: .45; scale: .85; } 50% { opacity: 1; scale: 1.12; } }
+@keyframes petal-fall { from { transform: translate(0,-25px) rotate(0); } to { transform: translate(45px,calc(100svh + 40px)) rotate(280deg); } }
+@keyframes note-unfold { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes stamp-in { from { transform: scale(1.6) rotate(-15deg); opacity: .3; } to { transform: none; opacity: 1; } }
+@keyframes candle-wind { 0% { opacity: 0; transform: translateX(-30px) scaleX(.4); } 40% { opacity: .85; } 100% { opacity: 0; transform: translateX(140px) scaleX(1.1); } }
+@keyframes wish-stars { 0% { opacity: 0; transform: rotate(var(--angle)) translateX(10px) rotate(calc(-1 * var(--angle))) scale(.2); } 20% { opacity: 1; } 100% { opacity: 0; transform: rotate(var(--angle)) translateX(160px) rotate(calc(-1 * var(--angle))) scale(1); } }
+@keyframes music-beat { from { transform: scaleY(.25); } to { transform: scaleY(1); } }
+@keyframes music-rock { 0%,100% { rotate: -4deg; } 50% { rotate: 1deg; } }
+@keyframes present-away { to { transform: scale(.8) translateY(20px); opacity: 0; } }
+@media (max-width: 820px), (max-width: 1100px) and (hover: none) and (pointer: coarse) {
+  .garden-atmosphere { background-size: 100% 100%; opacity: .83; }
+  main section:not(#hero) { padding: 28px 18px; }
+  .section-title { font-size: clamp(37px,10.2vw,49px); }
+  .section-title::before, .section-title::after { display: none; }
+  .section-subtitle { margin-bottom: 23px; }
+  #hero { padding: 96px 22px 26px; min-height: auto; }
+  .hero-badge { margin-bottom: 15px; }
+  .hero-name { font-size: clamp(63px,19vw,80px); }
+  .hero-art { width: min(76vw,295px); margin: 0 0 9px; }
+  .hero-art img { max-height: 295px; }
+  .hero-message { margin-bottom: 18px; }
+  .page-bunting { top: 59px; width: 107vw; opacity: .75; }
+  .cover-content { width: 100%; padding: 65px 22px 25px; }
+  .cover-eyebrow { margin-bottom: 12px; }
+  .cover-greeting { font-size: 16px; }
+  .cover-illustration { width: min(72vw,290px); margin: 4px auto; }
+  #cover-title { font-size: clamp(60px,18vw,78px); }
+  #cover-description { margin-bottom: 18px; }
+  .cover-footnote { margin-top: 18px; }
+  .cover-sparkles i:nth-child(1) { left: 10%; top: 33%; }.cover-sparkles i:nth-child(2) { right: 12%; top: 47%; }.cover-sparkles i:nth-child(3) { left: 11%; bottom: 23%; }.cover-sparkles i:nth-child(4) { right: 10%; bottom: 15%; }
+  .letter-card { padding: 24px 20px 28px; }.letter-postmark { right: 17px; top: 78px; width: 49px; height: 49px; padding-top: 7px; font-size: 6px; }.letter-postmark::first-line { font-size: 16px; }
+  .letter-greeting { font-size: 35px; padding-right: 26px; }
+  .teen-card, .wish-card { padding: 22px; }
+  .cake-scene { padding: 47px 5px 14px; border-radius: 17px; }.cake-scene-label { font-size: 30px; margin-bottom: -10px; }
+  #cake-interactive { width: 100%; height: auto; aspect-ratio: 1; margin: -17px 0 0; }
+  .cake-scene-caption { margin-inline: 10px; font-size: 14px; }
+  .cake-message { font-size: 32px; }
+  .music-card { grid-template-columns: 95px minmax(0,1fr); gap: 16px; padding: 23px 18px; }.music-copy h3 { font-size: 18px; }.music-copy p { font-size: 16px; }.music-cover { align-self: start; margin-top: 8px; }.music-play { padding: 8px 12px; font-size: 14px; min-height: 48px; }.music-note { font-size: 18px; }.music-wave { gap: 4px; }
+  .surprise-card { padding: 30px 18px; }.surprise-intro { font-size: 18px; padding: 0 32px 0 0; text-align: left; }.surprise-bunny { width: 49px; right: 8px; top: 16px; }.tulip-picks { gap: 0; }.tulip-picks button { width: 20%; min-height: 110px; }.tulip-surprise h3 { font-size: 34px; }.tulip-surprise > p, .tulip-messages li { font-size: 18px; }.present-hint { font-size: 16px; }
+  .closing-card { padding: 28px 22px; }.closing-big-text { font-size: 37px; }
+}
+@media (max-height: 720px) and (max-width: 599px) {
+  .cover-content { padding-top: 46px; padding-bottom: 18px; }.cover-illustration { width: min(61vw,220px); }.cover-eyebrow { margin-bottom: 9px; }#cover-title { font-size: 60px; }.cover-footnote { margin-top: 14px; }
+}
+@media (min-width: 1101px) {
+  .cover-door { background-image: radial-gradient(ellipse at 50% 40%, #fff9f2, #ffe7ed 78%, #f3d6e7); background-size: auto; }
+  .cover-garden { background-size: auto 100%; }
+  .cover-garden::before { content: ''; position: absolute; inset: 0; background: url(../assets/little-stars.svg) center / 270px 250px repeat; opacity: .28; }
+  .garden-atmosphere { background-size: auto 100%; background-repeat: repeat-x; opacity: .55; }
+}
+@media (max-height: 480px) and (min-width: 600px) {
+  .cover-content { width: min(90vw,660px); grid-template-columns: 190px 1fr; padding: 12px 20px; }.cover-illustration { width: 190px; margin: 0; }.cover-greeting { font-size: 14px; }#cover-title { font-size: 52px; }.cover-bunting { width: 560px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .petal-drift { display: none; }.cover-illustration, .hero-art, .cover-sparkles i, .cake-scene-star, .birthday-note.is-open .note-message, .birthday-plan.is-done .plan-icon, .is-playing .music-wave i, .is-playing .music-cover, .present-shine, .tulip-surprise, .tulip-messages li, .is-unwrapped .present-body, .wish-complete .wish-burst span, .is-blowing .wind-ribbon { animation: none; }.is-unwrapped .present-body { opacity: 0; }.present-lid, .tulip-picks button, .cover-garden { transition: none; }
+}

@@ -44,7 +44,7 @@
       const blend = Math.min(1, Math.max(0, (center - anchors[index]) / Math.max(1, anchors[index + 1] - anchors[index])));
       const eased = blend * blend * (3 - 2 * blend);
       ['purple', 'pink', 'gold'].forEach((color, channel) => {
-        const weight = palettes[index][channel] * (1 - eased) + palettes[index + 1][channel] * eased;
+        const weight = palettes[index % palettes.length][channel] * (1 - eased) + palettes[(index + 1) % palettes.length][channel] * eased;
         atmosphere.style.setProperty(`--${color}-weight`, weight.toFixed(4));
       });
     }
@@ -110,7 +110,7 @@
 
   addItems('.section-title', 'title');
   addItems('.section-subtitle, .section-intro, .letter-greeting, .letter-body p, .letter-signature, .cake-instruction, .plan-progress', 'text');
-  addItems('.profile-card, .teen-card, .wish-card, .birthday-note, .birthday-plan, .cake-container, .closing-card', 'card');
+  addItems('.profile-card, .teen-card, .wish-card, .birthday-note, .birthday-plan, .cake-scene, .music-card, .surprise-card, .closing-card', 'card');
   measureLayout();
   prepareAnimations();
   // Recalculate after fonts load and notes expand, outside the scroll loop.

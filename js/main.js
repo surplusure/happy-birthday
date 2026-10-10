@@ -8,6 +8,20 @@
     setup() {
       // ref 状态由 HTML 中的插值、:class、:aria-pressed 自动同步。
       const hasWished = ref(false);
+      const blowingCandles = ref(false);
+      const candlesOut = ref(0);
+      const selectedWish = ref('Bahagia');
+      const wishChoices = ['Bahagia', 'Sehat', 'Mimpi kecil'];
+      const surpriseOpened = ref(false);
+      const pickedTulips = ref([]);
+      const tulipMessages = ['Dede layak mendapat hari yang hangat.', 'Istirahat juga bagian dari tumbuh.', 'Kak ikut mendukung mimpi kecil dede.', 'Semoga banyak tawa menemani tahun ini.', 'Tetap jadi diri dede sendiri, ya.'];
+      let wishTimers = [];
+      function openSurprise() { surpriseOpened.value = true; celebrate(); }
+      function pickTulip(index) {
+        if (pickedTulips.value.includes(index)) return;
+        pickedTulips.value = [...pickedTulips.value, index];
+        if (pickedTulips.value.length === 5) celebrate();
+      }
       const giftOpened = ref(false);
       const giftOpening = ref(false);
       let openingTimer = null;
@@ -25,7 +39,8 @@
         { id: 'about', label: 'Dede Andini' }, { id: 'teen-years', label: 'Masa Remaja' },
         { id: 'wishes', label: 'Doa & Harapan' }, { id: 'little-notes', label: '17 Pesan dari Kak' },
         { id: 'cake', label: 'Kue Ulang Tahun' }, { id: 'birthday-plans', label: 'Hari Istimewa' },
-        { id: 'closing', label: 'Penutup' }
+        { id: 'birthday-music', label: 'Musik dari Kak' },
+        { id: 'little-surprise', label: 'Hadiah Kecil' }, { id: 'closing', label: 'Penutup' }
       ];
       const birthdayNotes = [
         { id: 1, icon: '🌟', title: 'Dede berharga', text: 'Nilai rapor dan pencapaian bukan ukuran diri dede. Kak menghargai dede apa adanya, termasuk saat dede masih belajar atau sedang kesulitan.' },
@@ -244,10 +259,22 @@
       }
 
       function makeWish() {
-        if (!hasWished.value) {
+        if (hasWished.value || blowingCandles.value) return;
+        if (reducedMotion.matches) {
+          candlesOut.value = 3;
           hasWished.value = true;
+          return;
         }
-        celebrate();
+        blowingCandles.value = true;
+        [160, 330, 500].forEach((delay, index) => {
+          wishTimers.push(window.setTimeout(() => { candlesOut.value = index + 1; }, delay));
+        });
+        wishTimers.push(window.setTimeout(() => {
+          blowingCandles.value = false;
+          hasWished.value = true;
+          celebrate();
+          wishTimers = [];
+        }, 850));
       }
 
       function scrollToSection(id) {
@@ -258,7 +285,13 @@
         window.clearTimeout(sceneTimer);
         sceneTimer = window.setTimeout(() => scrollToSection('letter'), reducedMotion.matches ? 0 : 1100);
       }
-      function relightCandles() { hasWished.value = false; }
+      function relightCandles() {
+        wishTimers.forEach(window.clearTimeout);
+        wishTimers = [];
+        hasWished.value = false;
+        blowingCandles.value = false;
+        candlesOut.value = 0;
+      }
 
       // 星空粒子背景：仅绘制点和连接线；隐藏页面时暂停，减少动态时静止。
       function resizeParticles() {
@@ -301,6 +334,13 @@
         if (!reducedMotion.matches) backgroundFrame = requestAnimationFrame(drawParticles);
       }
       function onMotionChange() {
+        if (reducedMotion.matches && blowingCandles.value) {
+          wishTimers.forEach(window.clearTimeout);
+          wishTimers = [];
+          candlesOut.value = 3;
+          blowingCandles.value = false;
+          hasWished.value = true;
+        }
         if (reducedMotion.matches && giftOpening.value) {
           window.clearTimeout(openingTimer);
           finishGiftOpening();
@@ -416,6 +456,7 @@
         window.addEventListener('pagehide', stopMusic);
       });
       onUnmounted(() => {
+        wishTimers.forEach(window.clearTimeout);
         window.clearTimeout(openingTimer);
         document.documentElement.classList.remove('gift-locked');
         document.removeEventListener('keydown', onCoverKeyDown);
@@ -435,6 +476,8 @@
       });
 
       return {
+        blowingCandles, candlesOut, selectedWish, wishChoices,
+        surpriseOpened, openSurprise, pickedTulips, pickTulip, tulipMessages,
         giftOpened, giftOpening, openGift,
         hasWished, musicPlaying, musicUnavailable, musicLabel,
         activeSection, navigation, wishes, particlesCanvas, confettiCanvas,

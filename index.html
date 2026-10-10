@@ -14,16 +14,18 @@
   <link rel="stylesheet" href="css/cake.css?v=20261009-cake2">
   <link rel="stylesheet" href="css/tulips.css?v=20261009-tulip1">
   <link rel="stylesheet" href="css/design.css?v=20261010-pink1">
-  <link rel="stylesheet" href="css/cover.css?v=20261010-door1">
+  <link rel="stylesheet" href="css/cover.css?v=20261010-garden2">
+  <link rel="stylesheet" href="css/garden.css?v=20261010-garden2">
   <script src="js/vendor/vue.global.prod.js" defer></script>
-  <script src="js/main.js?v=20261010-door1" defer></script>
-  <script src="js/scroll-motion.js?v=20261010-door1" defer></script>
+  <script src="js/main.js?v=20261010-garden2" defer></script>
+  <script src="js/scroll-motion.js?v=20261010-garden2" defer></script>
 </head>
 <body>
 <div id="app" v-cloak>
   <div v-if="!giftOpened" class="gift-cover" :class="{ 'is-opening': giftOpening }" role="dialog" aria-modal="true" aria-labelledby="cover-title" aria-describedby="cover-description" :aria-busy="giftOpening">
     <div class="cover-door cover-door--left" aria-hidden="true"><div class="door-inset"></div><img class="door-tulip" src="assets/tulip.svg" width="120" height="180" alt=""></div>
     <div class="cover-door cover-door--right" aria-hidden="true"><div class="door-inset"></div><img class="door-tulip" src="assets/tulip.svg" width="120" height="180" alt=""></div>
+    <div class="cover-garden" aria-hidden="true"></div><div class="cover-sparkles" aria-hidden="true"><i>✧</i><i>✦</i><i>✧</i><i>✦</i><i>✧</i><i>✦</i></div>
     <div class="cover-light" aria-hidden="true"></div>
     <img class="cover-bunting" src="assets/party-bunting.svg" width="640" height="120" alt="" aria-hidden="true">
     <div class="cover-content">
@@ -37,6 +39,7 @@
     </div>
   </div>
   <div id="birthday-content" :inert="!giftOpened" :aria-hidden="!giftOpened">
+  <div class="garden-atmosphere" aria-hidden="true"></div><div class="petal-drift" aria-hidden="true"><i v-for="n in 9" :key="n" :style="{ '--n': n }"></i></div>
   <div class="page-atmosphere" aria-hidden="true"><span class="glow-purple"></span><span class="glow-pink"></span><span class="glow-gold"></span></div>
   <div class="reading-progress" aria-hidden="true"><span></span></div>
   <a class="skip-link" href="#hero">Langsung ke ucapan</a>
@@ -82,7 +85,7 @@
             <div class="letter-card reveal">
                 <img class="paper-bunny" src="assets/bunny-note.svg" width="140" height="170" alt="" aria-hidden="true">
                 <img class="letter-tulip" src="assets/tulip.svg" width="120" height="180" alt="" aria-hidden="true">
-                <div class="letter-greeting">Dede Andini,</div>
+                <span class="letter-postmark" aria-hidden="true">17<br>UNTUK DEDE</span><div class="letter-greeting">Dede Andini,</div>
                 <div class="letter-body">
                     <p>Selamat ulang tahun yang ke-17, dede! 🎂</p>
                     <p>
@@ -187,58 +190,31 @@
                 <div class="section-title">Tiup Lilinnya!</div>
                 <div class="section-subtitle">06 / satu permohonan kecil</div>
             </div>
-            <div class="cake-stage">
-            <button class="cake-container reveal" id="cake-interactive" type="button" :aria-pressed="hasWished" aria-label="Tiup lilin ulang tahun" @click="makeWish">
-                <svg class="birthday-cake-art" viewBox="0 0 360 380" aria-hidden="true" focusable="false">
-                  <defs>
-                    <linearGradient id="cake-rose" x1="0" x2="1"><stop stop-color="#c86f97"/><stop offset=".28" stop-color="#f1a7c3"/><stop offset=".65" stop-color="#e996b7"/><stop offset="1" stop-color="#ba618b"/></linearGradient>
-                    <linearGradient id="cake-cream" x1="0" x2="1"><stop stop-color="#d5b0ba"/><stop offset=".3" stop-color="#fff0e6"/><stop offset=".65" stop-color="#f8dfdb"/><stop offset="1" stop-color="#ce9ea9"/></linearGradient>
-                    <linearGradient id="cake-gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffe8a3"/><stop offset=".5" stop-color="#cf9f58"/><stop offset="1" stop-color="#fae2a1"/></linearGradient>
-                    <linearGradient id="candle-wax" x1="0" x2="1"><stop stop-color="#d890a6"/><stop offset=".4" stop-color="#fff1e9"/><stop offset="1" stop-color="#e3acbc"/></linearGradient>
-                    <linearGradient id="candle-fire" x1="0" y1="1" x2="0" y2="0"><stop stop-color="#fff9d5"/><stop offset=".45" stop-color="#ffd582"/><stop offset="1" stop-color="#e9a056"/></linearGradient>
-                    <radialGradient id="candle-light"><stop stop-color="#ffce7c" stop-opacity=".34"/><stop offset="1" stop-color="#ffce7c" stop-opacity="0"/></radialGradient>
-                    <radialGradient id="cake-shadow"><stop stop-color="#000" stop-opacity=".35"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
-                    <pattern id="candle-ribbon" width="10" height="13" patternUnits="userSpaceOnUse"><path d="M-3 4L13-4M-3 17L13 9" stroke="#ce8da7" stroke-width="3" opacity=".75"/></pattern>
-                    <g id="cake-berry"><path d="M-9 0Q-13 9 0 20Q13 9 9 0Q0-6-9 0" fill="#c75276"/><path d="M-7 0L-10-4L-3-3L0-8L3-3L10-4L7 0" fill="#85a581"/><path d="M-4 6L-3 8M4 5L3 7M0 12V14" stroke="#ffe7b3" stroke-width="1.5" stroke-linecap="round"/></g>
-                    <g id="cake-flower"><path d="M0-2V10M0 7Q-7 5-6 0Q-1 1 0 7M0 5Q6 1 7-3Q1-1 0 5" stroke="#90a585" stroke-width="1.3" fill="#a8b79b"/><path d="M-6-12L-2-9L0-14L3-9L6-12C7-3 4 0 0 0S-7-3-6-12Z" fill="#ffe6de"/><path d="M-3-7Q0-4 3-7" stroke="#e7b9bf" stroke-width="1" fill="none"/></g>
-                  </defs>
-                  <ellipse cx="180" cy="342" rx="163" ry="25" fill="url(#cake-shadow)"/>
-                  <ellipse cx="180" cy="327" rx="155" ry="24" fill="#b590a2"/>
-                  <ellipse cx="180" cy="323" rx="155" ry="22" fill="#f7e5e0"/>
-                  <ellipse cx="180" cy="321" rx="141" ry="17" fill="#dec4cc"/>
-                  <path d="M40 234C40 193 320 193 320 234V292C320 336 40 336 40 292Z" fill="url(#cake-rose)"/>
-                  <path d="M49 287Q180 320 311 287" stroke="#f7c5d3" stroke-width="2" fill="none" opacity=".5"/>
-                  <ellipse cx="180" cy="234" rx="140" ry="31" fill="#fbe8df"/>
-                  <path d="M40 234Q51 244 65 249V263Q65 276 76 271V253L100 258V277Q100 292 112 285V260L142 264V273Q142 285 154 278V265L196 265V282Q196 296 208 286V263L239 258V270Q239 282 251 274V255L277 249V260Q277 273 288 267V245Q308 241 320 234Q320 266 180 267Q40 266 40 234" fill="#fff1e7"/>
-                  <path d="M80 161C80 133 280 133 280 161V223C280 257 80 257 80 223Z" fill="url(#cake-cream)"/>
-                  <path d="M82 224Q180 253 278 224" fill="none" stroke="#dca675" stroke-width="3"/>
-                  <ellipse cx="180" cy="161" rx="100" ry="24" fill="#fff3e9"/>
-                  <path d="M80 161Q91 170 106 174V184Q106 196 116 189V177L146 182V196Q146 208 157 199V183L199 183V194Q199 207 210 197V181L241 175V186Q241 198 251 189V173Q272 170 280 161Q280 187 180 187Q80 187 80 161" fill="#fff5eb"/>
-                  <ellipse cx="180" cy="159" rx="85" ry="16" fill="none" stroke="#e8c4bb" stroke-width="1"/>
-                  <g fill="#fff0e2" stroke="#dab4ad" stroke-width=".5"><circle cx="52" cy="298" r="5"/><circle cx="66" cy="305" r="5"/><circle cx="81" cy="310" r="5"/><circle cx="97" cy="314" r="5"/><circle cx="113" cy="317" r="5"/><circle cx="130" cy="320" r="5"/><circle cx="147" cy="322" r="5"/><circle cx="164" cy="323" r="5"/><circle cx="181" cy="323" r="5"/><circle cx="198" cy="323" r="5"/><circle cx="215" cy="322" r="5"/><circle cx="232" cy="320" r="5"/><circle cx="249" cy="317" r="5"/><circle cx="266" cy="314" r="5"/><circle cx="282" cy="310" r="5"/><circle cx="297" cy="305" r="5"/><circle cx="310" cy="298" r="5"/></g>
-                  <g fill="url(#cake-gold)"><circle cx="97" cy="230" r="2"/><circle cx="116" cy="236" r="2"/><circle cx="136" cy="240" r="2"/><circle cx="158" cy="243" r="2"/><circle cx="180" cy="244" r="2"/><circle cx="202" cy="243" r="2"/><circle cx="224" cy="240" r="2"/><circle cx="244" cy="236" r="2"/><circle cx="263" cy="230" r="2"/></g>
-                  <ellipse cx="180" cy="281" rx="27" ry="28" fill="#fff0e6" stroke="url(#cake-gold)" stroke-width="2"/>
-                  <text x="180" y="291" text-anchor="middle" fill="#a66f6c" font-family="Playfair Display, Georgia, serif" font-size="30">17</text>
-                  <use href="#cake-flower" x="100" y="280"/><use href="#cake-flower" x="265" y="282" transform="rotate(15 265 282)"/>
-                  <use href="#cake-berry" x="98" y="156" transform="rotate(-22 98 156)"/><use href="#cake-berry" x="264" y="156" transform="rotate(22 264 156)"/>
-                  <use href="#cake-flower" x="119" y="166"/><use href="#cake-flower" x="242" y="167"/>
-                  <g v-for="(position, index) in [{ x: 143, y: 153 }, { x: 180, y: 145 }, { x: 217, y: 153 }]" :key="index" :transform="'translate(' + position.x + ' ' + position.y + ')'">
-                    <ellipse cy="1" rx="8" ry="3" fill="#cfa8a4" opacity=".4"/>
-                    <rect x="-4" y="-49" width="8" height="50" rx="2" fill="url(#candle-wax)"/>
-                    <rect x="-4" y="-49" width="8" height="50" rx="2" fill="url(#candle-ribbon)"/>
-                    <ellipse cy="-49" rx="4" ry="1.6" fill="#fff0e3"/>
-                    <path d="M0-49V-56" stroke="#69565f" stroke-width="1.5" stroke-linecap="round"/>
-                    <g class="flame-wrapper" :class="{ 'blown-out': hasWished }" :id="'flame-' + (index + 1)">
-                      <ellipse class="candle-halo" cy="-67" rx="25" ry="30" fill="url(#candle-light)"/>
-                      <path class="candle-fire" d="M0-55C-13-59-5-72 1-83C1-72 12-65 6-58Q3-55 0-55" fill="url(#candle-fire)"/>
-                      <path class="candle-core" d="M0-56C-5-59-2-65 1-69C1-64 5-59 0-56" fill="#fff9e7"/>
+            <div class="wish-picker" aria-label="Pilih doa kecil"><button v-for="wish in wishChoices" :key="wish" type="button" :aria-pressed="selectedWish === wish" :disabled="blowingCandles || hasWished" @click="selectedWish = wish">{{ wish }}</button></div>
+            <div class="cake-scene" :class="{ 'is-blowing': blowingCandles, 'wish-complete': hasWished }">
+              <img class="scene-bunting" src="assets/party-bunting.svg" width="640" height="120" alt="" aria-hidden="true">
+              <span class="cake-scene-star star-one" aria-hidden="true">✧</span><span class="cake-scene-star star-two" aria-hidden="true">✦</span>
+              <p class="cake-scene-label">Satu doa kecil untuk usia 17</p>
+              <button class="cake-container" id="cake-interactive" type="button" :aria-pressed="hasWished" :disabled="blowingCandles || hasWished" aria-label="Tiup lilin ulang tahun" @click="makeWish">
+                <img class="cake-watercolor" src="assets/birthday-cake-watercolor-v3.png" width="1024" height="1024" alt="Kue krim merah muda dengan stroberi, tulip, dan kelinci kecil">
+                <svg class="birthday-candles" viewBox="0 0 1000 1000" aria-hidden="true">
+                  <defs><linearGradient id="new-flame" x2="0" y2="1"><stop stop-color="#e9a04e"/><stop offset=".55" stop-color="#ffd782"/><stop offset="1" stop-color="#fff8da"/></linearGradient><pattern id="wax-stripe" width="18" height="18" patternUnits="userSpaceOnUse"><rect width="18" height="18" fill="#fff4e9"/><path d="M-9 9L9-9M0 18L18 0M9 27L27 9" stroke="#ecabc4" stroke-width="7"/></pattern></defs>
+                  <g v-for="(x, index) in [422, 500, 578]" :key="x" :transform="'translate(' + x + ', 385)'">
+                    <ellipse cy="0" rx="16" ry="5" fill="#d6a6a1" opacity=".4"/>
+                    <rect x="-8" y="-85" width="16" height="85" rx="5" fill="url(#wax-stripe)" stroke="#d893a8" stroke-width="1.5"/>
+                    <path d="M0-85V-94" stroke="#95765e" stroke-width="3" stroke-linecap="round"/>
+                    <g class="flame-wrapper" :class="{ 'blown-out': candlesOut > index }">
+                      <ellipse class="candle-halo" cy="-113" rx="36" ry="44" fill="#ffd99e" opacity=".25"/>
+                      <path class="candle-fire" d="M0-94C-26-106-5-125 0-145C8-128 24-108 0-94Z" fill="url(#new-flame)"/>
+                      <path class="candle-core" d="M0-95C-9-101-3-111 1-119C9-107 10-100 0-95Z" fill="#fff9dd"/>
                     </g>
-                    <g class="candle-smoke" :class="{ visible: hasWished }"><path d="M0-55C-10-66 11-75 1-86S-5-104 2-110"/><path d="M1-56C9-68-8-76 0-91"/></g>
+                    <path class="candle-smoke" :class="{ visible: candlesOut > index }" d="M0-96C-20-117 18-134 0-154S-7-181 3-192"/>
                   </g>
-                  <g class="cake-sparkles" fill="url(#cake-gold)"><path d="M51 125L54 133L62 136L54 139L51 147L48 139L40 136L48 133Z"/><path d="M305 178L307 184L313 186L307 188L305 194L303 188L297 186L303 184Z"/><circle cx="281" cy="106" r="2"/><circle cx="70" cy="199" r="1.5"/></g>
                 </svg>
-            </button>
-            <img class="cake-bunny" src="assets/bunny-note.svg" width="140" height="170" alt="" aria-hidden="true">
+                <span class="wind-ribbon" aria-hidden="true"></span><span class="wind-ribbon wind-ribbon--two" aria-hidden="true"></span>
+              </button>
+              <div class="wish-burst" aria-hidden="true"><span v-for="n in 8" :key="n" :style="{ '--i': n }">✦</span></div>
+              <p class="cake-scene-caption">{{ hasWished ? 'Doa untuk ' + selectedWish.toLowerCase() + ' sudah kak titipkan 🌷' : blowingCandles ? 'Fuuuh… satu per satu lilinnya padam!' : 'Pejamkan mata sebentar… lalu sentuh kuenya ✨' }}</p>
             </div>
             <p class="cake-instruction" id="wish-status" role="status">{{ hasWished ? 'Lilin sudah padam. Kak ikut mendoakan yang baik untuk dede! ✨' : 'Buat permohonan dulu, de. Lalu sentuh kuenya untuk meniup lilin.' }}</p>
             <div class="cake-message" :class="{ visible: hasWished }" id="cake-message">Selamat ulang tahun, dede! 🎉</div><button v-if="hasWished" class="button-secondary" type="button" @click="relightCandles">Nyalakan lilin lagi ✨</button>
@@ -259,11 +235,39 @@
         <p class="plan-progress" role="status">{{ completedPlans.length === birthdayPlans.length ? 'Semua momen kecil sudah dirayakan! Semoga harimu menyenangkan, de. 🌟' : completedPlans.length + ' dari ' + birthdayPlans.length + ' momen kecil sudah dirayakan. Santai saja, de. ✨' }}</p>
     </div>
 </section>
+<section id="birthday-music" aria-labelledby="music-title">
+  <div class="section-content">
+    <h2 class="section-title" id="music-title">Nada Kecil dari Kak</h2><p class="section-subtitle">08 / teman untuk hari bahagiamu</p>
+    <div class="music-card" :class="{ 'is-playing': musicPlaying }">
+      <div class="music-cover" aria-hidden="true"><img src="assets/birthday-kitten-v2.png" width="1280" height="1280" alt=""><span>17</span></div>
+      <div class="music-copy"><h3>Untuk dede Andini</h3><p>Satu melodi ulang tahun, ditemani doa baik dari kak.</p><button class="music-play" type="button" :aria-pressed="musicPlaying" :disabled="musicUnavailable" @click="toggleMusic"><span aria-hidden="true">{{ musicPlaying ? 'Ⅱ' : '▷' }}</span> {{ musicPlaying ? 'Jeda musik' : 'Putar musik' }}</button></div>
+      <div class="music-wave" aria-hidden="true"><i v-for="n in 27" :key="n" :style="{ '--beat': n % 7, '--bar': (n * 13) % 32 + 8 }"></i></div>
+      <p class="music-note">Semoga nada kecil ini menemani senyum dede hari ini. Boleh ikut bernyanyi pelan, de. ♪</p>
+    </div>
+  </div>
+</section>
+<section id="little-surprise" aria-labelledby="surprise-title">
+  <div class="section-content">
+    <h2 class="section-title" id="surprise-title">Masih Ada Hadiah, De</h2><p class="section-subtitle">09 / buket semangat dari kak</p>
+    <div class="surprise-card" :class="{ 'is-unwrapped': surpriseOpened }">
+      <img class="surprise-bunny" src="assets/bunny-note.svg" width="140" height="170" alt="" aria-hidden="true">
+      <p class="surprise-intro">Kak menyimpan lima tulip kecil di sini.<br>Masing-masing membawa satu pesan untuk dede.</p>
+      <button class="present-box" type="button" aria-label="Buka hadiah tulip dari kak" :aria-expanded="surpriseOpened" :disabled="surpriseOpened" @click="openSurprise"><span class="present-lid"><img src="assets/birthday-bow.svg" width="120" height="70" alt=""></span><span class="present-body"><span>untuk dede</span></span><span class="present-shine" aria-hidden="true">✧</span></button>
+      <p v-if="!surpriseOpened" class="present-hint">Sentuh pita untuk membuka hadiahnya ✨</p>
+      <div v-if="surpriseOpened" class="tulip-surprise">
+        <h3>Lima tulip, lima doa baik 🌷</h3><p>Sentuh setiap bunga untuk mengumpulkan pesannya.</p>
+        <div class="tulip-picks"><button v-for="(message, index) in tulipMessages" :key="index" type="button" :aria-label="'Buka pesan tulip ' + (index + 1)" :aria-pressed="pickedTulips.includes(index)" :class="{ picked: pickedTulips.includes(index) }" @click="pickTulip(index)"><img src="assets/tulip.svg" width="120" height="180" alt=""><span>{{ pickedTulips.includes(index) ? '✓' : index + 1 }}</span></button></div>
+        <ul class="tulip-messages" aria-live="polite"><li v-for="index in pickedTulips" :key="index">{{ tulipMessages[index] }}</li></ul>
+        <p class="bouquet-progress" role="status">{{ pickedTulips.length === 5 ? 'Buketnya lengkap! Semoga dede merasa ditemani hari ini. 💛' : pickedTulips.length + ' dari 5 tulip sudah terkumpul' }}</p>
+      </div>
+    </div>
+  </div>
+</section>
 <section id="closing">
         <div class="section-content">
             <div class="reveal">
                 <div class="section-title">Satu Pesan Lagi, De</div>
-                <div class="section-subtitle">08 / kak ikut menyemangati</div>
+                <div class="section-subtitle">10 / kak ikut menyemangati</div>
             </div>
             <div class="closing-card reveal">
                 <div class="tulip-bouquet" aria-hidden="true"><img src="assets/tulip.svg" width="120" height="180" alt=""><img src="assets/tulip.svg" width="120" height="180" alt=""><img src="assets/tulip.svg" width="120" height="180" alt=""></div>
