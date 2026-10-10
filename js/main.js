@@ -2,12 +2,15 @@
 (() => {
   'use strict';
 
-  const { createApp, ref, onMounted, onUnmounted } = Vue;
+  const { createApp, ref, nextTick, onMounted, onUnmounted } = Vue;
 
   createApp({
     setup() {
       // ref 状态由 HTML 中的插值、:class、:aria-pressed 自动同步。
       const hasWished = ref(false);
+      const giftOpened = ref(false);
+      const giftOpening = ref(false);
+      let openingTimer = null;
       const musicPlaying = ref(false);
       const musicUnavailable = ref(false);
       const musicLabel = ref('Putar musik');
@@ -82,6 +85,32 @@
       let clickFrame = null;
       let clickPieces = [];
       let lastClickTime = null;
+
+      async function finishGiftOpening() {
+        if (giftOpened.value) return;
+        giftOpened.value = true;
+        giftOpening.value = false;
+        document.documentElement.classList.remove('gift-locked');
+        document.documentElement.classList.add('gift-revealed');
+        await nextTick();
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        document.getElementById('birthday-heading')?.focus({ preventScroll: true });
+        window.dispatchEvent(new Event('gift-opened'));
+        celebrate();
+      }
+      function openGift() {
+        if (giftOpening.value || giftOpened.value) return;
+        giftOpening.value = true;
+        openingTimer = window.setTimeout(finishGiftOpening, reducedMotion.matches ? 0 : 1680);
+      }
+      function onCoverKeyDown(event) {
+        if (giftOpened.value) return;
+        if (event.key === 'Tab') {
+          event.preventDefault();
+          document.getElementById('open-gift')?.focus();
+        }
+        if (['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End'].includes(event.key)) event.preventDefault();
+      }
 
       // 全页 click 监听：桌面点击、手机点按、控件点击均触发，不拦截原操作。
       function resizeClickCanvas() {
@@ -272,6 +301,10 @@
         if (!reducedMotion.matches) backgroundFrame = requestAnimationFrame(drawParticles);
       }
       function onMotionChange() {
+        if (reducedMotion.matches && giftOpening.value) {
+          window.clearTimeout(openingTimer);
+          finishGiftOpening();
+        }
         if (reducedMotion.matches) clearClickParticles();
         if (backgroundFrame !== null) cancelAnimationFrame(backgroundFrame);
         backgroundFrame = null;
@@ -360,6 +393,9 @@
         }
       }
       onMounted(() => {
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        nextTick(() => document.getElementById('open-gift')?.focus({ preventScroll: true }));
+        document.addEventListener('keydown', onCoverKeyDown);
         canvas = confettiCanvas.value;
         context = canvas.getContext('2d');
         clickContext = clickParticlesCanvas.value.getContext('2d');
@@ -380,6 +416,9 @@
         window.addEventListener('pagehide', stopMusic);
       });
       onUnmounted(() => {
+        window.clearTimeout(openingTimer);
+        document.documentElement.classList.remove('gift-locked');
+        document.removeEventListener('keydown', onCoverKeyDown);
         stopMusic();
         clearClickParticles();
         if (confettiFrame !== null) cancelAnimationFrame(confettiFrame);
@@ -396,6 +435,7 @@
       });
 
       return {
+        giftOpened, giftOpening, openGift,
         hasWished, musicPlaying, musicUnavailable, musicLabel,
         activeSection, navigation, wishes, particlesCanvas, confettiCanvas,
         clickParticlesCanvas, birthdayNotes, openedNotes, toggleNote, birthdayPlans, completedPlans,

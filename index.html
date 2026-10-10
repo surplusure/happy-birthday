@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="gift-locked">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -14,12 +14,29 @@
   <link rel="stylesheet" href="css/cake.css?v=20261009-cake2">
   <link rel="stylesheet" href="css/tulips.css?v=20261009-tulip1">
   <link rel="stylesheet" href="css/design.css?v=20261010-pink1">
+  <link rel="stylesheet" href="css/cover.css?v=20261010-door1">
   <script src="js/vendor/vue.global.prod.js" defer></script>
-  <script src="js/main.js?v=20261010-pink1" defer></script>
-  <script src="js/scroll-motion.js?v=20261010-pink1" defer></script>
+  <script src="js/main.js?v=20261010-door1" defer></script>
+  <script src="js/scroll-motion.js?v=20261010-door1" defer></script>
 </head>
 <body>
 <div id="app" v-cloak>
+  <div v-if="!giftOpened" class="gift-cover" :class="{ 'is-opening': giftOpening }" role="dialog" aria-modal="true" aria-labelledby="cover-title" aria-describedby="cover-description" :aria-busy="giftOpening">
+    <div class="cover-door cover-door--left" aria-hidden="true"><div class="door-inset"></div><img class="door-tulip" src="assets/tulip.svg" width="120" height="180" alt=""></div>
+    <div class="cover-door cover-door--right" aria-hidden="true"><div class="door-inset"></div><img class="door-tulip" src="assets/tulip.svg" width="120" height="180" alt=""></div>
+    <div class="cover-light" aria-hidden="true"></div>
+    <img class="cover-bunting" src="assets/party-bunting.svg" width="640" height="120" alt="" aria-hidden="true">
+    <div class="cover-content">
+      <p class="cover-eyebrow">dari kak, untuk dede</p>
+      <p class="cover-greeting">Selamat ulang tahun ke-17</p>
+      <h2 id="cover-title">Andini Sari</h2>
+      <div class="cover-illustration"><img src="assets/birthday-kitten-v2.png" width="1280" height="1280" alt="Anak kucing dengan hadiah dan tulip merah muda"></div>
+      <p id="cover-description">Ada kejutan kecil di balik pintu ini.<br>Siap membukanya, de?</p>
+      <button id="open-gift" class="btn-celebrate cover-open-button" type="button" :disabled="giftOpening" @click="openGift"><span aria-hidden="true">🎁</span> {{ giftOpening ? 'Membuka kejutan…' : 'Buka hadiah dari kak' }} <span aria-hidden="true">→</span></button>
+      <p class="cover-footnote">dibungkus dengan doa baik &amp; semangat 🌷</p>
+    </div>
+  </div>
+  <div id="birthday-content" :inert="!giftOpened" :aria-hidden="!giftOpened">
   <div class="page-atmosphere" aria-hidden="true"><span class="glow-purple"></span><span class="glow-pink"></span><span class="glow-gold"></span></div>
   <div class="reading-progress" aria-hidden="true"><span></span></div>
   <a class="skip-link" href="#hero">Langsung ke ucapan</a>
@@ -33,6 +50,7 @@
   </nav>
   <main>
 <section id="hero">
+        <img class="page-bunting" src="assets/party-bunting.svg" width="640" height="120" alt="" aria-hidden="true">
         <!-- Tulips and small birthday accents -->
         <img class="tulip-floating tulip-floating--left" src="assets/tulip.svg" width="120" height="180" alt="" aria-hidden="true">
         <img class="tulip-floating tulip-floating--right" src="assets/tulip.svg" width="120" height="180" alt="" aria-hidden="true">
@@ -40,14 +58,14 @@
           <div class="hero-copy">
             <div class="hero-badge">🌷 Hari istimewa untuk dede</div>
             <h2 class="hero-subtitle">Selamat ulang tahun ke-17,</h2>
-            <h1 class="hero-name" id="birthday-heading"><span class="name-first">Andini</span> <span class="name-last">Sari</span></h1>
+            <h1 class="hero-name" id="birthday-heading" tabindex="-1"><span class="name-first">Andini</span> <span class="name-last">Sari</span></h1>
             <p class="hero-message">
                 Kak titip doa baik, sedikit kejutan,<br>
                 dan banyak semangat untuk langkah dede berikutnya.
             </p>
             <div class="hero-cta">
                 <button class="btn-celebrate" id="btn-start" @click="startCelebration">
-                    <span aria-hidden="true">🎁</span> Buka kejutan dari kak <span aria-hidden="true">→</span>
+                    <span aria-hidden="true">✉️</span> Baca surat dari kak <span aria-hidden="true">→</span>
                 </button>
             </div><a class="scroll-note" href="#letter">Ada surat kecil untuk dede di bawah sini ↓</a>
             <p class="click-hint">Sentuh di mana saja, lihat bintang kecilnya ✨</p>
@@ -62,6 +80,7 @@
                 <div class="section-subtitle">01 / beberapa kata untuk dede</div>
             </div>
             <div class="letter-card reveal">
+                <img class="paper-bunny" src="assets/bunny-note.svg" width="140" height="170" alt="" aria-hidden="true">
                 <img class="letter-tulip" src="assets/tulip.svg" width="120" height="180" alt="" aria-hidden="true">
                 <div class="letter-greeting">Dede Andini,</div>
                 <div class="letter-body">
@@ -168,6 +187,7 @@
                 <div class="section-title">Tiup Lilinnya!</div>
                 <div class="section-subtitle">06 / satu permohonan kecil</div>
             </div>
+            <div class="cake-stage">
             <button class="cake-container reveal" id="cake-interactive" type="button" :aria-pressed="hasWished" aria-label="Tiup lilin ulang tahun" @click="makeWish">
                 <svg class="birthday-cake-art" viewBox="0 0 360 380" aria-hidden="true" focusable="false">
                   <defs>
@@ -218,6 +238,8 @@
                   <g class="cake-sparkles" fill="url(#cake-gold)"><path d="M51 125L54 133L62 136L54 139L51 147L48 139L40 136L48 133Z"/><path d="M305 178L307 184L313 186L307 188L305 194L303 188L297 186L303 184Z"/><circle cx="281" cy="106" r="2"/><circle cx="70" cy="199" r="1.5"/></g>
                 </svg>
             </button>
+            <img class="cake-bunny" src="assets/bunny-note.svg" width="140" height="170" alt="" aria-hidden="true">
+            </div>
             <p class="cake-instruction" id="wish-status" role="status">{{ hasWished ? 'Lilin sudah padam. Kak ikut mendoakan yang baik untuk dede! ✨' : 'Buat permohonan dulu, de. Lalu sentuh kuenya untuk meniup lilin.' }}</p>
             <div class="cake-message" :class="{ visible: hasWished }" id="cake-message">Selamat ulang tahun, dede! 🎉</div><button v-if="hasWished" class="button-secondary" type="button" @click="relightCandles">Nyalakan lilin lagi ✨</button>
         </div>
@@ -273,6 +295,7 @@
             Jaga diri, tetap semangat, dan nikmati harimu, de. 🌼
         </p>
     </footer>
+  </div>
 </div>
 <noscript><p class="noscript-note">Aktifkan JavaScript untuk membuka semua kejutan, musik, dan kue ulang tahun interaktif.</p></noscript>
 </body>

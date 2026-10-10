@@ -122,6 +122,7 @@
   window.addEventListener('scroll', requestUpdate, { passive: true });
   window.addEventListener('resize', measureLayout, { passive: true });
   window.addEventListener('pageshow', measureLayout);
+  window.addEventListener('gift-opened', measureLayout);
   window.addEventListener('pagehide', () => {
     if (frame !== null) cancelAnimationFrame(frame);
     frame = null;
