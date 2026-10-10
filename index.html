@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#0a0a1a">
+  <meta name="theme-color" content="#fff7f5">
   <meta name="description" content="Kejutan ulang tahun ke-17 untuk dede Andini Sari, dengan doa, perhatian, dan semangat dari kak.">
-  <title>Happy 17th Birthday, Dede Andini!</title>
+  <title>Selamat Ulang Tahun ke-17, Dede Andini!</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%230a0a1a'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Georgia' font-size='37' fill='%23ff6bc1'%3E17%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/style.css?v=20261009-mobile2">
@@ -13,9 +13,10 @@
   <link rel="stylesheet" href="css/motion.css?v=20261009-flow1">
   <link rel="stylesheet" href="css/cake.css?v=20261009-cake2">
   <link rel="stylesheet" href="css/tulips.css?v=20261009-tulip1">
+  <link rel="stylesheet" href="css/design.css?v=20261010-pink1">
   <script src="js/vendor/vue.global.prod.js" defer></script>
-  <script src="js/main.js?v=20261009-tulip1" defer></script>
-  <script src="js/scroll-motion.js?v=20261009-flow1" defer></script>
+  <script src="js/main.js?v=20261010-pink1" defer></script>
+  <script src="js/scroll-motion.js?v=20261010-pink1" defer></script>
 </head>
 <body>
 <div id="app" v-cloak>
@@ -25,7 +26,8 @@
   <canvas id="particles-canvas" ref="particlesCanvas" aria-hidden="true"></canvas>
   <canvas id="confetti-canvas" ref="confettiCanvas" aria-hidden="true"></canvas>
   <canvas id="click-particles-canvas" ref="clickParticlesCanvas" aria-hidden="true"></canvas>
-  <button id="audio-toggle" type="button" :aria-pressed="musicPlaying" :aria-label="musicLabel" :title="musicLabel" :disabled="musicUnavailable" @click="toggleMusic"><span aria-hidden="true">{{ musicPlaying ? '🔊' : '🎵' }}</span></button>
+  <header class="site-header"><a href="#hero"><img src="assets/tulip.svg" width="24" height="36" alt="">Untuk dede</a><span>sebuah kejutan dari kak</span></header>
+  <button id="audio-toggle" type="button" :aria-pressed="musicPlaying" :aria-label="musicLabel" :title="musicLabel" :disabled="musicUnavailable" @click="toggleMusic"><span aria-hidden="true">{{ musicPlaying ? 'Ⅱ' : '♪' }}</span></button>
   <nav class="nav-dots" aria-label="Bagian ucapan ulang tahun">
     <button v-for="item in navigation" :key="item.id" type="button" class="nav-dot" :class="{ active: activeSection === item.id }" :aria-label="item.label" :aria-current="activeSection === item.id ? 'location' : null" :data-label="item.label" @click="scrollToSection(item.id)"><span></span></button>
   </nav>
@@ -34,34 +36,30 @@
         <!-- Tulips and small birthday accents -->
         <img class="tulip-floating tulip-floating--left" src="assets/tulip.svg" width="120" height="180" alt="" aria-hidden="true">
         <img class="tulip-floating tulip-floating--right" src="assets/tulip.svg" width="120" height="180" alt="" aria-hidden="true">
-        <img class="tulip-floating tulip-floating--small" src="assets/tulip.svg" width="120" height="180" alt="" aria-hidden="true">
-        <div class="floating-emoji" style="top:70%;right:5%;animation-delay:0.5s;font-size:32px">✨</div>
-
-        <div class="section-content">
-            <div class="hero-badge">🌷 Sweet Seventeen 💛</div>
+        <div class="section-content hero-layout">
+          <div class="hero-copy">
+            <div class="hero-badge">🌷 Hari istimewa untuk dede</div>
+            <h2 class="hero-subtitle">Selamat ulang tahun ke-17,</h2>
             <h1 class="hero-name" id="birthday-heading"><span class="name-first">Andini</span> <span class="name-last">Sari</span></h1>
-            <h2 class="hero-subtitle">Happy 17th Birthday!</h2>
-            <div class="indo-accent"></div>
-            <div class="hero-age" id="age-badge">
-                <span>17</span>
-            </div>
             <p class="hero-message">
-                Selamat ulang tahun ke-17, dede! 🌟<br>
-                Kejutan kecil dari kak, khusus untuk hari bahagiamu.
+                Kak titip doa baik, sedikit kejutan,<br>
+                dan banyak semangat untuk langkah dede berikutnya.
             </p>
             <div class="hero-cta">
                 <button class="btn-celebrate" id="btn-start" @click="startCelebration">
-                    <span>🎉</span> Buka Kejutannya <span>🎉</span>
+                    <span aria-hidden="true">🎁</span> Buka kejutan dari kak <span aria-hidden="true">→</span>
                 </button>
-            </div><a class="scroll-note" href="#letter">Ada sesuatu yang manis di bawah sini ✨</a>
-            <p class="click-hint">Sentuh di mana saja untuk menebar sedikit keajaiban ✨</p>
+            </div><a class="scroll-note" href="#letter">Ada surat kecil untuk dede di bawah sini ↓</a>
+            <p class="click-hint">Sentuh di mana saja, lihat bintang kecilnya ✨</p>
+          </div>
+          <figure class="hero-art"><img src="assets/birthday-kitten-v2.png" width="1280" height="1280" alt="Ilustrasi anak kucing, hadiah ulang tahun, dan bunga tulip merah muda"><figcaption>dibuat untuk hari bahagiamu 💛</figcaption></figure>
         </div>
     </section>
 <section id="letter">
         <div class="section-content">
             <div class="reveal">
                 <div class="section-title">Surat dari Kak</div>
-                <div class="section-subtitle">✉️ Untuk Dede Andini ✉️</div>
+                <div class="section-subtitle">01 / beberapa kata untuk dede</div>
             </div>
             <div class="letter-card reveal">
                 <img class="letter-tulip" src="assets/tulip.svg" width="120" height="180" alt="" aria-hidden="true">
@@ -96,12 +94,12 @@
 <section id="about">
         <div class="section-content">
             <div class="reveal">
-                <div class="section-title">Dede yang Berulang Tahun</div>
-                <div class="section-subtitle">✨ Yang Berulang Tahun ✨</div>
+                <div class="section-title">Hari Ini Milik Dede</div>
+                <div class="section-subtitle">02 / tujuh belas, penuh cerita</div>
             </div>
             <div class="profile-card reveal">
                 <div class="profile-avatar">
-                    <span class="avatar-text">A</span>
+                    <img src="assets/tulip.svg" width="120" height="180" alt="" aria-hidden="true">
                 </div>
                 <h3 class="profile-name">Andini Sari</h3>
                 <div class="indo-accent"></div>
@@ -126,7 +124,7 @@
 <section id="teen-years" aria-labelledby="teen-title">
     <div class="section-content">
         <h2 class="section-title" id="teen-title">Nikmati Masa Remajamu</h2>
-        <p class="section-subtitle">🌷 No Rush to Grow Up 🌷</p>
+        <p class="section-subtitle">03 / tumbuh pelan-pelan juga boleh</p>
         <p class="section-intro">Usia 17 bukan perlombaan. Masih ada waktu untuk mengenal dirimu, menikmati hal-hal kecil, dan menemukan apa yang kamu sukai.</p>
         <div class="teen-grid">
             <article class="teen-card"><span class="teen-icon" aria-hidden="true">🎨</span><h3>Temukan yang kamu suka</h3><p>Menggambar, membaca, bermain, menari, atau mencoba hobi baru — nikmati rasa ingin tahumu. Kamu tidak harus langsung hebat untuk mulai menyukai sesuatu.</p></article>
@@ -140,7 +138,7 @@
         <div class="section-content">
             <div class="reveal">
                 <div class="section-title">Doa & Harapan</div>
-                <div class="section-subtitle">🌟 Wishes for You 🌟</div>
+                <div class="section-subtitle">04 / doa baik dari kak</div>
             </div>
             <div class="wishes-grid">
                 <article class="wish-card reveal" v-for="wish in wishes" :key="wish.title">
@@ -152,7 +150,7 @@
 <section id="little-notes" aria-labelledby="notes-title">
     <div class="section-content">
         <h2 class="section-title" id="notes-title">17 Pesan dari Kak</h2>
-        <p class="section-subtitle">🌱 Pengingat Kecil untuk Dede 🌱</p>
+        <p class="section-subtitle">05 / simpan sedikit semangat</p>
         <p class="section-intro">Kak titip 17 pesan kecil untuk dede. Buka kartu mana saja saat ingin membaca sedikit semangat atau pengingat yang baik.</p>
         <div class="notes-grid">
             <button v-for="note in birthdayNotes" :key="note.id" class="birthday-note" :class="{ 'is-open': openedNotes.includes(note.id) }" type="button" :aria-expanded="openedNotes.includes(note.id)" :aria-controls="'note-message-' + note.id" @click="toggleNote(note.id)">
@@ -168,7 +166,7 @@
         <div class="section-content">
             <div class="reveal">
                 <div class="section-title">Tiup Lilinnya!</div>
-                <div class="section-subtitle">🎂 Make a Wish 🎂</div>
+                <div class="section-subtitle">06 / satu permohonan kecil</div>
             </div>
             <button class="cake-container reveal" id="cake-interactive" type="button" :aria-pressed="hasWished" aria-label="Tiup lilin ulang tahun" @click="makeWish">
                 <svg class="birthday-cake-art" viewBox="0 0 360 380" aria-hidden="true" focusable="false">
@@ -221,13 +219,13 @@
                 </svg>
             </button>
             <p class="cake-instruction" id="wish-status" role="status">{{ hasWished ? 'Lilin sudah padam. Kak ikut mendoakan yang baik untuk dede! ✨' : 'Buat permohonan dulu, de. Lalu sentuh kuenya untuk meniup lilin.' }}</p>
-            <div class="cake-message" :class="{ visible: hasWished }" id="cake-message">Happy 17th Birthday, Dede! 🎉</div><button v-if="hasWished" class="button-secondary" type="button" @click="relightCandles">Nyalakan lilin lagi ✨</button>
+            <div class="cake-message" :class="{ visible: hasWished }" id="cake-message">Selamat ulang tahun, dede! 🎉</div><button v-if="hasWished" class="button-secondary" type="button" @click="relightCandles">Nyalakan lilin lagi ✨</button>
         </div>
     </section>
 <section id="birthday-plans" aria-labelledby="plans-title">
     <div class="section-content">
-        <h2 class="section-title" id="plans-title">Little Birthday Checklist</h2>
-        <p class="section-subtitle">🎀 A Day Full of Little Joys 🎀</p>
+        <h2 class="section-title" id="plans-title">Hal Kecil yang Menyenangkan</h2>
+        <p class="section-subtitle">07 / nikmati hari ini, de</p>
         <p class="section-intro">Tidak harus pesta besar. Pilih hal-hal sederhana yang membuat hari ulang tahunmu terasa menyenangkan, lalu centang yang sudah kamu lakukan.</p>
         <div class="birthday-plan-list">
             <label v-for="plan in birthdayPlans" :key="plan.id" class="birthday-plan" :class="{ 'is-done': completedPlans.includes(plan.id) }">
@@ -243,7 +241,7 @@
         <div class="section-content">
             <div class="reveal">
                 <div class="section-title">Satu Pesan Lagi, De</div>
-                <div class="section-subtitle">🌟 Semangat dari Kak 🌟</div>
+                <div class="section-subtitle">08 / kak ikut menyemangati</div>
             </div>
             <div class="closing-card reveal">
                 <div class="tulip-bouquet" aria-hidden="true"><img src="assets/tulip.svg" width="120" height="180" alt=""><img src="assets/tulip.svg" width="120" height="180" alt=""><img src="assets/tulip.svg" width="120" height="180" alt=""></div>
@@ -269,7 +267,7 @@
         <p class="footer-text">
             Kejutan kecil dari kak untuk <strong style="color:var(--primary-light)">dede Andini Sari</strong>
         </p>
-        <div class="footer-indo">Happy 17th Birthday! 🇮🇩</div>
+        <div class="footer-indo">Selamat ulang tahun ke-17! 🌷</div>
         <div class="indo-accent" style="margin-top:15px"></div>
         <p class="footer-text" style="margin-top:10px;font-size:12px;opacity:0.5">
             Jaga diri, tetap semangat, dan nikmati harimu, de. 🌼

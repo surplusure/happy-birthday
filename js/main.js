@@ -18,10 +18,10 @@
       const openedNotes = ref([1]);
       const completedPlans = ref([]);
       const navigation = [
-        { id: 'hero', label: 'Home' }, { id: 'letter', label: 'Surat dari Kak' },
+        { id: 'hero', label: 'Awal' }, { id: 'letter', label: 'Surat dari Kak' },
         { id: 'about', label: 'Dede Andini' }, { id: 'teen-years', label: 'Masa Remaja' },
         { id: 'wishes', label: 'Doa & Harapan' }, { id: 'little-notes', label: '17 Pesan dari Kak' },
-        { id: 'cake', label: 'Kue Ulang Tahun' }, { id: 'birthday-plans', label: 'Birthday Checklist' },
+        { id: 'cake', label: 'Kue Ulang Tahun' }, { id: 'birthday-plans', label: 'Hari Istimewa' },
         { id: 'closing', label: 'Penutup' }
       ];
       const birthdayNotes = [
@@ -239,11 +239,11 @@
         particlesCanvas.value.width = width * scale;
         particlesCanvas.value.height = height * scale;
         backgroundContext.setTransform(scale, 0, 0, scale, 0, 0);
-        particles = Array.from({ length: width < 600 ? 40 : 75 }, () => ({
+        particles = Array.from({ length: width < 600 ? 20 : 35 }, () => ({
           x: Math.random() * width, y: Math.random() * height,
           size: .7 + Math.random() * 1.8,
           vx: (Math.random() - .5) * 12, vy: (Math.random() - .5) * 12,
-          color: ['#e91e8c', '#b795ff', '#fbbf24', '#ff6bc1'][Math.floor(Math.random() * 4)]
+          color: ['#cb8ba6', '#d3b8df', '#cfad76', '#eeb5c5'][Math.floor(Math.random() * 4)]
         }));
         if (backgroundFrame === null) drawParticles(performance.now());
       }
@@ -268,19 +268,6 @@
           backgroundContext.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
           backgroundContext.fill();
         });
-        for (let i = 0; i < particles.length; i++) {
-          for (let j = i + 1; j < particles.length; j++) {
-            const distance = Math.hypot(particles[i].x - particles[j].x, particles[i].y - particles[j].y);
-            if (distance >= 110) continue;
-            backgroundContext.beginPath();
-            backgroundContext.strokeStyle = '#e91e8c';
-            backgroundContext.globalAlpha = .09 * (1 - distance / 110);
-            backgroundContext.lineWidth = .6;
-            backgroundContext.moveTo(particles[i].x, particles[i].y);
-            backgroundContext.lineTo(particles[j].x, particles[j].y);
-            backgroundContext.stroke();
-          }
-        }
         backgroundContext.globalAlpha = 1;
         if (!reducedMotion.matches) backgroundFrame = requestAnimationFrame(drawParticles);
       }
